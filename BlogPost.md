@@ -101,9 +101,14 @@ Sources:
 
     After the command finishes running, there should be an ```Image``` file in ```arch/riscv/boot```.
 
-3. Run ```sudo make install``` to link the files that were made to the system configurations.
+3. Link the files that were made to the system configurations.
 
-4. Go into ```extlinux/extlinux.config``` (?) and check the generated configurations. There should be 4, 2 for the old kernel and 2 for the new kernel.
+    ```
+    sudo make install
+    sudo u-boot-update
+    ```
+
+4. Go into ```extlinux/extlinux.config``` and check the generated configurations. There should be 4, 2 for the old kernel and 2 for the new kernel.
 
     Every entry should have a label, and 5 lines inside a label beginning with menu, linux, initrd, fdtdir, and append.
 
