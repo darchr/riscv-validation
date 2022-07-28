@@ -89,7 +89,20 @@ Sources:
     ``` 
     wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.18.14.tar.xz
     unxz linux-5.18.14.tar.xz
-    tar -xvf linux-5.18.14.tar
+    ```
+
+2. Verify the signature of the tar file.
+
+    ```
+    wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.18.14.tar.sign
+    gpg2 --locate-keys torvalds@kernel.org gregkh@kernel.org
+    gpg2 --verify linux-5.18.14.tar.sign
+    ```
+
+3. Once verified, extract the tar file.
+
+    ```
+    tar -xvf linux-5.18.14.tar 
     ```
 
 2. Make an Image file from the extracted folder.
