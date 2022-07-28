@@ -132,7 +132,7 @@ Sources:
     ```
     If prompted, it is okay to accept the defaults for all by hitting enter.
 
-2. Make an Image file from the extracted folder.
+8. Make an Image file from the extracted folder.
 
     ``` 
     make Image -j4
@@ -140,14 +140,14 @@ Sources:
 
     After the command finishes running, there should be an ```Image``` file in ```arch/riscv/boot```.
 
-3. Link the files that were made to the system configurations.
+9. Link the files that were made to the system configurations.
 
     ```
     sudo make install
     sudo u-boot-update
     ```
 
-4. Go into ```extlinux/extlinux.config``` and check the generated configurations. There should be 4, 2 for the old kernel and 2 for the new kernel.
+10. Go into ```extlinux/extlinux.config``` and check the generated configurations. There should be 4, 2 for the old kernel and 2 for the new kernel.
 
     Every entry should have a label, and 5 lines inside a label beginning with menu, linux, initrd, fdtdir, and append.
 
@@ -170,7 +170,7 @@ Sources:
             fdtdir /lib/firmware/5.15.0-1015-generic/device-tree
             append root=/dev/nvme0n1p1 ro earlycon single
     ``` 
-5. Reboot your system. On startup, choose the new kernel to boot into.
+11. Reboot your system. On startup, choose the new kernel to boot into.
 
 ## Updating perf
 Once you are booted into the latest kernel, you should have the necessary drivers
