@@ -60,8 +60,10 @@
     ```
     u-boot-update
     ```
-    
+
 8. Reboot your system.
+
+NOTE: if you already have a previous version of Ubuntu installed on the board, you should delete it to free up the NVMe drive for the new version. One way of doing that is deleting the _.config_ file in _extlinux_.
 
 ## Updating the Kernel
 
