@@ -19,7 +19,7 @@ Sources :
     ```
     dd if=</path/to/image.img> of=/dev/mmcblk0 bs=1M status=progress
     ```
-    Note: _mmcblk0_ is the part to the SD card when it is directly connected to the system that you have downloaded the image on. If you are using a USB adapter, the path to _of_ could change to something along the lines of _/dev/sdb_.
+    Note: _mmcblk0_ is the name of the SD card when it is directly connected to the system that you have downloaded the image on. If you are using a USB adapter, the path to _of_ could change to something along the lines of _/dev/sdb_.
 
 3. Connect to the board via serial connection after inserting the microSD back into it. <br>
 
@@ -35,7 +35,11 @@ Sources :
     sudo screen -L /dev/serial/by-path/<YOUR PORT> 115200 
     ``` 
 
-4. Boot up the image on the board. Once you are in the kernel, you need to redownload the image using the same commands as in step 1.
+4. Boot up the board. If you already have a previous version of Ubuntu installed on the board, the bootloader will boot the old version instead of the image on the SD card. You should delete the extlinux.conf bootloader file on the NVMe to force the stage 1 bootloader to boot the Ubuntu image on the SD card instead of the NVMe. Then reboot.
+    ```
+    sudo rm /boot/extlinux/extlinux.conf
+    ```
+5. Once you are in booted into the Ubuntu image on the SD card, you need to redownload the image using the same commands as in step 1.
     ```
     wget https://cdimage.ubuntu.com/releases/22.04/release/ubuntu-22.04-preinstalled-server-riscv64+unleashed.img.xz
     
@@ -46,27 +50,29 @@ Sources :
     ```
     ls -l /dev/nvme*
     ```
-    Choose the partition of the NVMe that appears. It could be _/dev/nvme0n1_ or even _/dev/nvme0n1p1_. <br>
+    Choose the name of the NVMe that appears. It may be something like _/dev/nvme0n1_. <br>
     Flash the image onto your partition.
     ```
-    sudo dd if=/ubuntu-22.04-preinstalled-server-riscv64+unmatched.img of=/dev/<YOUR PARTITION> bs=1M status=progress
+    sudo dd if=/ubuntu-22.04-preinstalled-server-riscv64+unmatched.img of=/dev/<YOUR NVMe device name> bs=1M status=progress
     ```
 
 6. There is a race condition that could result in the board booting off the microSD card instead of the NVMe drive. To prevent it, mount the NVMe drive and chroot it.
     ```
-    sudo mount /dev/<YOUR PARTITION> /mnt
+    sudo mount /dev/<YOUR NVMe NAME>p1 /mnt
     sudo chroot /mnt
     ```
 
-7. Edit ```/etc/default/u-boot``` and uncomment the line ```U_BOOT_ROOT="root=/dev/<YOUR PARTITION>"``` <br>
+7. Edit ```/etc/default/u-boot``` and uncomment the line ```U_BOOT_ROOT="root=/dev/<YOUR NVMe>p1"``` <br>
     Apply your changes.
     ```
     u-boot-update
     ```
+    Exit the chroot environment.
+    ```
+    exit
+    ```
 
-8. Reboot your system.
-
-NOTE: if you already have a previous version of Ubuntu installed on the board, you should delete it to free up the NVMe drive for the new version. One way of doing that is deleting the _.config_ file in _extlinux_.
+8. Reboot your system. It should now boot the new Ubuntu version from the NVMe!
 
 ## Updating the Kernel
 
