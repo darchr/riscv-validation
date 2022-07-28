@@ -147,3 +147,20 @@ Sources:
 5. Reboot your system. On startup, choose the new kernel to boot into.
 
 ## Updating perf
+Once you are booted into the latest kernel, you should have the necessary drivers
+to track more hardware events in addition to cycles and instructions. Here we
+will compile the perf from source for the kernel that was just installed. From
+the linux source directory run.
+
+    ```
+    make tools/perf -j 4
+    ```
+It may take some time to compile. once it is compiled, the perf binary can be
+found in ```<Kernel Source Directory>/tools/perf/```. To run,
+
+    ```
+    cd tools/perf/
+    ./perf list
+    ```
+This should print the list of hardware events that can be tracked. The list
+should now include more hardware events in addition to cycles and isntructions.
