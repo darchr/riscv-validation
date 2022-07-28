@@ -81,6 +81,7 @@ Sources :
 Sources: 
 [1]: https://www.kernel.org 
 [2]: https://www.linux.com/topic/desktop/how-compile-linux-kernel-0/
+[3]: https://github.com/carlosedp/riscv-bringup/tree/master/unmatched/patches
 ```
 
 
@@ -106,10 +107,34 @@ Sources:
     tar -xvf linux-5.18.14.tar 
     ```
 
+4. Download the kernel configuration file for the HiFive Unmatched board.
+
+    ```
+    wget https://raw.githubusercontent.com/carlosedp/riscv-bringup/master/unmatched/patches/linux-5.13-defconfig
+    ```
+
+5. Copy the config file to the kernel source directory as .config.
+
+    ```
+    cp linux-5.13-defconfig <PATH_TO_KERNEL_SOURCE>/.config
+    ```
+
+6. Move into the kernel directory
+
+    ```
+    cd linux-5.18.14
+    ```
+
+7. Generate a config file for the newest kernel version from the old config.
+
+    ```
+    make oldconfig
+    ```
+    If prompted, it is okay to accept the defaults for all by hitting enter.
+
 2. Make an Image file from the extracted folder.
 
     ``` 
-    cd linux-5.18.14
     make Image -j4
     ```
 
