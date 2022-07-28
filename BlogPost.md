@@ -96,12 +96,12 @@ Sources:
 
     ``` 
     cd linux-5.18.14
-    make Image -j4
+    sudo make Image -j4
     ```
 
     After the command finishes running, there should be an ```Image``` file in ```arch/riscv/boot```.
 
-3. Run ```make install``` to link the files that were made to the system configurations.
+3. Run ```sudo make install``` to link the files that were made to the system configurations.
 
 4. Go into ```extlinux/extlinux.config``` (?) and check the generated configurations. There should be 4, 2 for the old kernel and 2 for the new kernel.
 
