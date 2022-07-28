@@ -35,7 +35,7 @@ Sources :
     sudo screen -L /dev/serial/by-path/<YOUR PORT> 115200 
     ``` 
 
-4. Boot up the board. If you already have a previous version of Ubuntu installed on the board, the bootloader will boot the old version instead of the image on the SD card. You should delete the extlinux.conf bootloader file on the NVMe to force the stage 1 bootloader to boot the Ubuntu image on the SD card instead of the NVMe. Then reboot.
+4. Boot up the board. If you already have a previous version of Ubuntu installed on the board, the bootloader will boot the old version instead of the image on the SD card. You should delete the ```extlinux.conf``` bootloader file on the NVMe to force the stage 1 bootloader to boot the Ubuntu image on the SD card instead of the NVMe. Then reboot.
     ```
     sudo rm /boot/extlinux/extlinux.conf
     ```
@@ -96,12 +96,12 @@ Sources:
 
     ``` 
     cd linux-5.18.14
-    sudo make Image -j4
+    make Image -j4
     ```
 
     After the command finishes running, there should be an ```Image``` file in ```arch/riscv/boot```.
 
-3. Run ```sudo make install``` to link the files that were made to the system configurations.
+3. Run ```make install``` to link the files that were made to the system configurations.
 
 4. Go into ```extlinux/extlinux.config``` (?) and check the generated configurations. There should be 4, 2 for the old kernel and 2 for the new kernel.
 
