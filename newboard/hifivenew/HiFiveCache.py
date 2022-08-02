@@ -24,18 +24,25 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from gem5.components.cachehierarchies.abstract_cache_hierarchy import AbstractCacheHierarchy
-from gem5.components.cachehierarchies.classic.abstract_classic_cache_hierarchy import AbstractClassicCacheHierarchy
-from gem5.components.cachehierarchies.abstract_two_level_cache_hierarchy import AbstractTwoLevelCacheHierarchy
+from gem5.components.cachehierarchies.abstract_cache_hierarchy import (
+    AbstractCacheHierarchy,
+)
+from gem5.components.cachehierarchies.classic.abstract_classic_cache_hierarchy import (
+    AbstractClassicCacheHierarchy,
+)
+from gem5.components.cachehierarchies.abstract_two_level_cache_hierarchy import (
+    AbstractTwoLevelCacheHierarchy,
+)
 from gem5.components.cachehierarchies.classic.caches.l1dcache import L1DCache
 from gem5.components.cachehierarchies.classic.caches.l1icache import L1ICache
 from gem5.components.cachehierarchies.classic.caches.l2cache import L2Cache
 from gem5.components.cachehierarchies.classic.caches.mmu_cache import MMUCache
 from gem5.components.boards.abstract_board import AbstractBoard
-from ....isas import ISA
+from gem5.isas import ISA
 from m5.objects import Cache, L2XBar, BaseXBar, SystemXBar, BadAddr, Port
 
-from ....utils.override import *
+from gem5.utils.override import *
+
 
 class HiFiveCacheHierarchy(
     AbstractClassicCacheHierarchy, AbstractTwoLevelCacheHierarchy
@@ -134,12 +141,12 @@ class HiFiveCacheHierarchy(
         ]
         # ITLB Page walk caches
         self.iptw_caches = [
-            MMUCache(size='8KiB')
+            MMUCache(size="8KiB")
             for _ in range(board.get_processor().get_num_cores())
         ]
         # DTLB Page walk caches
         self.dptw_caches = [
-            MMUCache(size='8KiB')
+            MMUCache(size="8KiB")
             for _ in range(board.get_processor().get_num_cores())
         ]
 

@@ -1,5 +1,5 @@
-#Copyright (c) 2022 The Regents of the University of California.
-#All Rights Reserved
+# Copyright (c) 2022 The Regents of the University of California.
+# All Rights Reserved
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -33,68 +33,82 @@ from os import path
 
 # from configs/example/riscv/fs_linux.py
 
-def generateMemNode(state, mem_range):
-    node = FdtNode("memory@%x" % int(mem_range.start))
-    node.append(FdtPropertyStrings("device_type", ["memory"]))
-    node.append(FdtPropertyWords("reg",
-        state.addrCells(mem_range.start) +
-        state.sizeCells(mem_range.size()) ))
-    return node
+# def generateMemNode(state, mem_range):
+#     node = FdtNode("memory@%x" % int(mem_range.start))
+#     node.append(FdtPropertyStrings("device_type", ["memory"]))
+#     node.append(FdtPropertyWords("reg",
+#         state.addrCells(mem_range.start) +
+#         state.sizeCells(mem_range.size()) ))
+#     return node
 
 
-def generateDtb(system):
-    state = FdtState(addr_cells=2, size_cells=2, cpu_cells=1)
-    root = FdtNode('/')
-    root.append(state.addrCellsProperty())
-    root.append(state.sizeCellsProperty())
-    root.appendCompatible(["riscv-virtio"])
+# def generateDtb(system):
+#     state = FdtState(addr_cells=2, size_cells=2, cpu_cells=1)
+#     root = FdtNode('/')
+#     root.append(state.addrCellsProperty())
+#     root.append(state.sizeCellsProperty())
+#     root.appendCompatible(["riscv-virtio"])
 
-    for mem_range in system.mem_ranges:
-        root.append(generateMemNode(state, mem_range))
+#     for mem_range in system.mem_ranges:
+#         root.append(generateMemNode(state, mem_range))
 
-    sections = [*system.cpu, system.platform]
+#     sections = [*system.cpu, system.platform]
 
-    for section in sections:
-        for node in section.generateDeviceTree(state):
-            if node.get_name() == root.get_name():
-                root.merge(node)
-            else:
-                root.append(node)
+#     for section in sections:
+#         for node in section.generateDeviceTree(state):
+#             if node.get_name() == root.get_name():
+#                 root.merge(node)
+#             else:
+#                 root.append(node)
 
-    fdt = Fdt()
-    fdt.add_rootnode(root)
-    fdt.writeDtsFile(path.join(m5.options.outdir, 'device.dts'))
-    fdt.writeDtbFile(path.join(m5.options.outdir, 'device.dtb'))
+#     fdt = Fdt()
+#     fdt.add_rootnode(root)
+#     fdt.writeDtsFile(path.join(m5.options.outdir, 'device.dts'))
+#     fdt.writeDtbFile(path.join(m5.options.outdir, 'device.dtb'))
 
 
 class U74IntFU(MinorDefaultIntFU):
     opLat = 1
 
+
 class U74IntMulFU(MinorDefaultIntMulFU):
     opLat = 3
 
+
 class U74IntDivFU(MinorDefaultIntDivFU):
-    opLat = None # not implemented 6 or 68 cycles
+    opLat = None  # not implemented 6 or 68 cycles
     # microops or another method to implement division?
     pass
+
 
 class U74FloatSimdFU(MinorDefaultFloatSimdFU):
     pass
 
+
 class U74PredFU(MinorDefaultPredFU):
     pass
+
 
 class U74MemFU(MinorDefaultMemFU):
     opLat = 3
 
+
 class U74MiscFU(MinorDefaultMiscFU):
     pass
 
+
 class U74FUPool(MinorFUPool):
-    funcUnits = [U74IntFU(), U74IntFU(),
-        U74IntMulFU(), U74IntDivFU(),
-        U74FloatSimdFU(), U74PredFU(),
-        U74MemFU(), U74MiscFU()]
+    funcUnits = [
+        U74IntFU(),
+        U74IntFU(),
+        U74IntMulFU(),
+        U74IntDivFU(),
+        U74FloatSimdFU(),
+        U74PredFU(),
+        U74MemFU(),
+        U74MiscFU(),
+    ]
+
 
 class U74BP(TournamentBP):
     BTBEntries = 16
