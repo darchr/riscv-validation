@@ -8,6 +8,7 @@ from gem5.resources.resource import Resource
 from gem5.simulate.simulator import Simulator
 from HiFiveCache import HiFiveCacheHierarchy
 from HiFiveCPU import U74CPU
+from HiFiveCPU import U74Processor
 
 
 # Obtain the components.
@@ -15,7 +16,8 @@ cache_hierarchy = HiFiveCacheHierarchy(
     l1d_size="32kB", l1i_size="32kB", l2_size="2MB"
 )
 memory = SingleChannelDDR4_2400("16GiB")
-processor = SimpleProcessor(cpu_type=U74CPU, num_cores=1)
+#processor = SimpleProcessor(cpu_type=U74CPU, num_cores=1)
+processor = U74Processor(cpu_type=CPUTypes.ATOMIC, num_cores=1)
 
 # Add them to the board.
 board = SimpleBoard(
@@ -23,7 +25,7 @@ board = SimpleBoard(
 )
 
 # Set the workload.
-binary = Resource("x86-hello64-static")
+binary = Resource("riscv-hello")
 board.set_se_binary_workload(binary)
 
 # Setup the Simulator and run the simulation.

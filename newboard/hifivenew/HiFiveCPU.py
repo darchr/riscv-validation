@@ -25,10 +25,13 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+from gem5.components.processors.simple_processor import SimpleProcessor
+from gem5.isas import ISA
 import m5
 from m5.objects import *
 from m5.util import convert
 from os import path
+
 
 # from configs/example/riscv/fs_linux.py
 
@@ -116,6 +119,19 @@ class U74BP(TournamentBP):
 
     indirectBranchPred = SimpleIndirectPredictor()
     indirectBranchPred.indirectSets  = 8
+
+# create U74 from SimpleProcessor parent for stdlib compatibility
+class U74Processor(SimpleProcessor):
+    def __init__(
+        self,
+        cpu_type,
+        num_cores,
+    ) -> None:
+        super().__init__(
+            cpu_type=cpu_type,
+            num_cores=num_cores,
+            isa=ISA.RISCV,
+        )
 
 
 class U74CPU(MinorCPU):

@@ -1,5 +1,5 @@
 from HiFiveCache import HiFiveCacheHierarchy
-from HiFiveCPU import U74CPU
+from HiFiveCPU import U74Processor
 from gem5.components.memory.single_channel import SingleChannelDDR4_2400
 from gem5.components.processors.simple_processor import SimpleProcessor
 from gem5.utils.requires import requires
@@ -10,7 +10,6 @@ from gem5.simulate.simulator import Simulator
 from gem5.components.processors.cpu_types import CPUTypes
 from gem5.components.memory.memory import ChanneledMemory
 
-
 requires(isa_required=ISA.RISCV)
 
 cache_hierarchy = HiFiveCacheHierarchy(
@@ -19,7 +18,7 @@ cache_hierarchy = HiFiveCacheHierarchy(
 memory = SingleChannelDDR4_2400("16GB")
 
 ## [AddrRange(start=0x80000000, size='1024MB')]
-processor = SimpleProcessor(cpu_type=CPUTypes.MINOR, num_cores=4)
+processor = U74Processor(cpu_type=CPUTypes.MINOR, num_cores=1)
 
 board = SimpleBoard(
     clk_freq="3GHz",
