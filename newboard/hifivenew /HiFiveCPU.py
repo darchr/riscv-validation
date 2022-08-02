@@ -25,7 +25,6 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-from cpu.pred.BranchPredictor import TournamentBP
 import m5
 from m5.objects import *
 from m5.util import convert
@@ -76,7 +75,7 @@ class U74IntMulFU(MinorDefaultIntMulFU):
 
 
 class U74IntDivFU(MinorDefaultIntDivFU):
-    opLat = None  # not implemented 6 or 68 cycles
+    opLat = 6  # not implemented 6 or 68 cycles
     # microops or another method to implement division?
     pass
 
@@ -115,8 +114,8 @@ class U74BP(TournamentBP):
     RASSize = 6
     localHistoryTableSize = 3600
 
-    # indirectBranchPred = SimpleIndirectPredictor()
-    # indirectBranchPred.indirectSets  = 8
+    indirectBranchPred = SimpleIndirectPredictor()
+    indirectBranchPred.indirectSets  = 8
 
 
 class U74CPU(MinorCPU):
