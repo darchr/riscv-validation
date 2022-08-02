@@ -7,7 +7,7 @@ from gem5.isas import ISA
 from gem5.components.boards.simple_board import SimpleBoard
 from gem5.resources.resource import Resource
 from gem5.simulate.simulator import Simulator
-from python.gem5.components.processors.cpu_types import CPUTypes
+from gem5.components.processors.cpu_types import CPUTypes
 
 
 requires(isa_required=ISA.RISCV)
