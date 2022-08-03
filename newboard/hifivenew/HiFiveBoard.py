@@ -5,29 +5,34 @@ from gem5.components.processors.simple_processor import SimpleProcessor
 from gem5.utils.requires import requires
 from gem5.isas import ISA
 from gem5.components.boards.simple_board import SimpleBoard
+from gem5.components.processors.cpu_types import CPUTypes, CustomCPUTypes
 from gem5.resources.resource import Resource
 from gem5.simulate.simulator import Simulator
-from gem5.components.processors.cpu_types import CPUTypes, CustomCPUTypes
 
 #from m5.objects import AddrRange
 
-requires(isa_required=ISA.RISCV)
+class HiFiveUnmatchedBoard(SimpleBoard):
+    def __init__(self) -> None:
+        requires(isa_required=ISA.RISCV)
 
-cache_hierarchy = HiFiveCacheHierarchy(
-    l1d_size="32kB", l1i_size="32kB", l2_size="2MB"
-)
-memory = ChanneledMemory(DDR4_2400_8x8, 1, 64)
-#memory.set_memory_range([AddrRange(start=0x80000000, size=16GB)])
+        cache_hierarchy = HiFiveCacheHierarchy(
+            l1d_size="32kB", l1i_size="32kB", l2_size="2MB"
+        )
 
-processor = SimpleProcessor(cpu_type=CustomCPUTypes.U74, num_cores=1)
-#processor = U74Processor(cpu_type=CPUTypes.MINOR, num_cores=1)
+        memory = ChanneledMemory(DDR4_2400_8x8, 1, 64)
+        #memory.set_memory_range([AddrRange(start=0x80000000, size=16GB)])
 
-board = SimpleBoard(
-    clk_freq="3GHz",
-    processor=processor,
-    memory=memory,
-    cache_hierarchy=cache_hierarchy,
-)
+        processor = SimpleProcessor(cpu_type=CustomCPUTypes.U74, num_cores=1)
+
+        super().__init__(
+            clk_freq="3GHz",
+            processor=processor,
+            memory=memory,
+            cache_hierarchy=cache_hierarchy,
+        )
+
+board = HiFiveUnmatchedBoard()
+
 binary = Resource("riscv-hello")
 board.set_se_binary_workload(binary)
 
