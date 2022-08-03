@@ -134,7 +134,7 @@ class U74Processor(SimpleProcessor):
         )
 
 
-class U74CPU(MinorCPU):
+class U74CPU(BaseMinorCPU):
     fetch1FetchLimit = 2
     fetch1ToFetch2BackwardDelay = 0
     fetch2InputBufferSize = 1
