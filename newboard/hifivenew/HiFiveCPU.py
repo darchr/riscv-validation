@@ -25,13 +25,14 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-from gem5.components.processors.simple_processor import SimpleProcessor
-from gem5.isas import ISA
+#from gem5.components.processors.simple_processor import SimpleProcessor
+#from gem5.isas import ISA
+#import m5
+#from m5.objects import *
+#from m5.util import convert
+#from os import path
 import m5
-from m5.objects import *
-from m5.util import convert
-from os import path
-
+from m5.objects.BaseMinorCPU import *
 
 # from configs/example/riscv/fs_linux.py
 
@@ -133,8 +134,8 @@ class U74Processor(SimpleProcessor):
             isa=ISA.RISCV,
         )
 
-
-class U74CPU(BaseMinorCPU):
+# RiscvCPU base class and RiscvMMU() are in src/arch/riscv/RiscvCPU.py
+class RiscvU74CPU(BaseMinorCPU, RiscvCPU):
     fetch1FetchLimit = 2
     fetch1ToFetch2BackwardDelay = 0
     fetch2InputBufferSize = 1
@@ -143,3 +144,4 @@ class U74CPU(BaseMinorCPU):
     decodeToExecuteForwardDelay = 2
     executeFuncUnits = U74FUPool()
     branchPred = U74BP()
+    mmu = RiscvMMU()
