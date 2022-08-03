@@ -7,7 +7,7 @@
 echo "Benchmark,instructions,cycles,ipc" > microbench.csv
 
 for dir in */ ; do
-    PERF_DATA=$(perf stat -e cycles:u,instructions:u -o /dev/stdout $dir/bench)
+    PERF_DATA=$(perf stat -r 2 -e cycles:u,instructions:u -o /dev/stdout $dir/bench)
 
     echo -n $dir | tr -d '/' >> microbench.csv
     echo -n "," >> microbench.csv
