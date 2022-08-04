@@ -1,4 +1,3 @@
-from HiFiveCache import HiFiveCacheHierarchy
 from gem5.components.memory.dram_interfaces.ddr4 import DDR4_2400_8x8
 from gem5.components.memory.memory import ChanneledMemory
 from gem5.components.processors.simple_processor import SimpleProcessor
@@ -6,7 +5,7 @@ from gem5.utils.requires import requires
 from gem5.isas import ISA
 from gem5.components.boards.simple_board import SimpleBoard
 from gem5.components.processors.cpu_types import CPUTypes, CustomCPUTypes
-
+from HiFiveCache import HiFiveCacheHierarchy
 from m5.objects import AddrRange
 
 class HiFiveUnmatchedBoard(SimpleBoard):
@@ -24,7 +23,7 @@ class HiFiveUnmatchedBoard(SimpleBoard):
         processor = SimpleProcessor(cpu_type=CustomCPUTypes.U74, num_cores=1)
 
         super().__init__(
-            clk_freq="3GHz",
+            clk_freq="1.2GHz", # real system is 1.0 to 1.5 GHz
             processor=processor,
             memory=memory,
             cache_hierarchy=cache_hierarchy,
