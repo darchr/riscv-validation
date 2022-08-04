@@ -141,12 +141,12 @@ class HiFiveCacheHierarchy(
         ]
         # ITLB Page walk caches
         self.iptw_caches = [
-            MMUCache(size="8KiB")
+            MMUCache(size="4KiB")
             for _ in range(board.get_processor().get_num_cores())
         ]
         # DTLB Page walk caches
         self.dptw_caches = [
-            MMUCache(size="8KiB")
+            MMUCache(size="4KiB")
             for _ in range(board.get_processor().get_num_cores())
         ]
 

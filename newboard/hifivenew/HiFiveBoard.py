@@ -16,7 +16,7 @@ class HiFiveUnmatchedBoard(SimpleBoard):
             l1d_size="32kB", l1i_size="32kB", l2_size="2MB"
         )
 
-        memory = ChanneledMemory(DDR4_2400_8x8, 1, 64)
+        memory = ChanneledMemory(DDR4_2400_8x8, 1, 64, "16GB")
         memory.set_memory_range(
             [AddrRange(start=0x80000000, size=memory.get_size())])
 
