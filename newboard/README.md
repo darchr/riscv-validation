@@ -41,7 +41,7 @@ underneath the CPUTypes enum called CustomCPUTypes with the name of the U74 CPU.
         U74 = "u74"
     ```
 
-4. In src/python/gem5/components/processors/abstract_core.py: import
+4. In ```src/python/gem5/components/processors/abstract_core.py```: import
 CustomCPUTypes and add **CustomCPUTypes.U74: "U74CPU",** to the
 _cpu_types_string_map dictionary.
     ```py
@@ -57,7 +57,7 @@ _cpu_types_string_map dictionary.
         }
     ```
 
-5. In src/python/gem5/components/processors/simple_processor.py, import
+5. In ```src/python/gem5/components/processors/simple_processor.py```, import
 CustomCPUTypes. In the **incoprorate_processor()** function, add 
 CustomCPUTypes.U74 to the list of processors in the first if condition, 
 alongside CPUTypes.MINOR.
