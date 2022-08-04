@@ -7,7 +7,7 @@ from gem5.isas import ISA
 from gem5.components.boards.simple_board import SimpleBoard
 from gem5.components.processors.cpu_types import CPUTypes, CustomCPUTypes
 
-#from m5.objects import AddrRange
+from m5.objects import AddrRange
 
 class HiFiveUnmatchedBoard(SimpleBoard):
     def __init__(self) -> None:
@@ -18,7 +18,8 @@ class HiFiveUnmatchedBoard(SimpleBoard):
         )
 
         memory = ChanneledMemory(DDR4_2400_8x8, 1, 64)
-        #memory.set_memory_range([AddrRange(start=0x80000000, size=16GB)])
+        memory.set_memory_range(
+            [AddrRange(start=0x80000000, size=memory.get_size())])
 
         processor = SimpleProcessor(cpu_type=CustomCPUTypes.U74, num_cores=1)
 
