@@ -12,6 +12,11 @@ To set the path to RISCV compiler, change `$CC_RISCV` in `make.config` file.
 
 The binaries are named `bench.RISCV` on each subdirectory.
 
+To run all benchmarks under perf and generate a CSV with stats,
+```shell
+../stat-tracking/microbench.sh
+```
+
 From the original README file,
 
 > Hi,
