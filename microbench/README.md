@@ -1,31 +1,16 @@
 # microbench
-Extremely Simple Microbenchmarks
+This is a fork from darchr/microbench, which itself is a fork from 
+VerticalResearchGroup/microbench. This configuration of microbench is
+for use with the HiFive Unmatched board running Ubuntu 22.04.
 
-To build X86 binaries,  
+To build RISCV binaries for the Unmatched board,
 ```shell
-make
+make RISCV -j4
 ```
 
-To build ARM binaries,
-```shell
-make ARM
-```
-
-To build RISCV binaries,
-```shell
-make RISCV
-```
-
-To build X86, ARM, and RISCV binaries,
-```shell
-make all
-```
-
-To set the path to X86 compiler, change `$CC_X86` in `make.config` file.  
-To set the path to ARM compiler, change `$CC_ARM` in `make.config` file.  
 To set the path to RISCV compiler, change `$CC_RISCV` in `make.config` file.  
 
-The binaries are named `bench.X86`, `bench.ARM`, and `bench.RISCV` on each subdirectory.
+The binaries are named `bench.RISCV` on each subdirectory.
 
 From the original README file,
 
