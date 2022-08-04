@@ -70,7 +70,7 @@ alongside CPUTypes.MINOR.
     ```
 
 6. Copy and paste all imports and classes from
-<path_to_this_repo>/newboard/hifivenew/HiFiveCPU.py (exclude U74Processor class)
+```<path_to_this_repo>/newboard/hifivenew/HiFiveCPU.py ```(exclude U74Processor class)
 to the bottom of src/arch/riscv/RiscvCPU.py.
 
 7. Compile the gem5 RISCV binary.
