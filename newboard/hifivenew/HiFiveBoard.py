@@ -6,8 +6,6 @@ from gem5.utils.requires import requires
 from gem5.isas import ISA
 from gem5.components.boards.simple_board import SimpleBoard
 from gem5.components.processors.cpu_types import CPUTypes, CustomCPUTypes
-from gem5.resources.resource import Resource
-from gem5.simulate.simulator import Simulator
 
 #from m5.objects import AddrRange
 
@@ -30,11 +28,3 @@ class HiFiveUnmatchedBoard(SimpleBoard):
             memory=memory,
             cache_hierarchy=cache_hierarchy,
         )
-
-board = HiFiveUnmatchedBoard()
-
-binary = Resource("riscv-hello")
-board.set_se_binary_workload(binary)
-
-simulator = Simulator(board=board)
-simulator.run()
