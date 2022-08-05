@@ -10,6 +10,8 @@
 - L2 Size : 2MB
 - L2 Associativity : 16
 - MMU Size : 4kiB
+- Branch Predictor:
+    16 entry BTB, 3.6 kiB branch history table, 8 entry indirect jump target predictor, 6 entry RAS
 
 ### Memory
 - 16GB DDR4 channeled subsystem
