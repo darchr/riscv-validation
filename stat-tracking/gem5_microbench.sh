@@ -4,15 +4,16 @@
 # REQUIREMENTS:
 # This script must be run from the root gem5 source directory
 # The benchmark binaries must be located in ./bins/ and have extension .RISCV
-# Currently, the gem5 config script must by in
-# ./src/python/gem5/prebuilt/hifivenew/HiFiveRun.py 
+# USAGE: ./gem5_microbench.sh <path_to_gem5_config_script>
+# example:
+    # ./gem5_microbench.sh ./src/python/gem5/prebuilt/hifivenew/HiFiveRun.py 
 
 #!/bin/sh
 
 echo "Benchmark,instructions,cycles,ipc" > gem5_microbench.csv
 
 for bin in bins/* ; do
-    ./build/RISCV/gem5.opt src/python/gem5/prebuilt/hifivenew/HiFiveRun.py --riscv_binary=$bin
+    ./build/RISCV/gem5.opt $1 --riscv_binary=$bin
 
     echo -n $(basename $bin .RISCV), >> gem5_microbench.csv
 
