@@ -85,3 +85,8 @@ to the bottom of src/arch/riscv/RiscvCPU.py.
     ./build/RISCV/gem5.opt src/python/gem5/prebuilt/hifivenew/HiFiveRun.py
     ```
     This should run a successful simulation and print "Hello world!".
+    You can also run a custom RISCV binary by passing in the absolute path
+    to the binary via the command line. Here is an example:
+    ```sh
+    ./build/RISCV/gem5.opt src/python/gem5/prebuilt/hifivenew/HiFiveRun.py --riscv_binary=/home/rangij/gem5/src/python/gem5/prebuilt/hifivenew/bins/CCa.RISCV
+    ```
