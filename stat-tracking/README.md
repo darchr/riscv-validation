@@ -48,3 +48,17 @@ and that the benchmarks have been [compiled](../microbench/README.md).
     ./gem5_microbench.sh ./src/python/gem5/prebuilt/hifivenew/HiFiveRun.py
     ```
     This will generate gem5_microbench.csv containing the stats.
+
+## Microbenchmarks
+A Script are provided for running the [aakahlow/microbenchmarks](https://github.com/aakahlow/microbenchmarks) on hardware.
+
+### Hardware
+Make sure that the benchmarks have been compiled in `../microbenchmarks`.
+There will be errors compiling some. Ignore them. Then run the script in 
+the microbench directory.
+```sh
+cd ../microbenchmarks
+make
+../stat-tracking/microbench.sh <repetitions>
+```
+This will generate microbenchmarks.csv containing the stats.
