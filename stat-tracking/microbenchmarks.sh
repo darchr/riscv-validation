@@ -11,10 +11,11 @@
 echo "Benchmark,instructions,cycles,ipc" > microbenchmarks.csv
 
 for exe in $(ls | grep -o -E '^([^.]+)$') ; do
-    echo Running $exe
     if [ "$exe" = "LICENSE" ] || [ "$exe" = "Makefile" ]; then
         continue
     fi
+
+    echo Running $exe
     PERF_DATA=$(perf stat -r 1 -e cycles:u,instructions:u -o /dev/stdout ./$exe $1)
 
     echo -n $exe | tr -d '/' >> microbenchmarks.csv
