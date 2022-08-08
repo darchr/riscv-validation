@@ -8,11 +8,13 @@ df1 = pd.read_csv("perf_microbench.csv")
 X = df1["Benchmark"]
 Y1 = df1["IPC"]
 Y2 = df1["Cycles"]
+Y3 = df1["Instructions"]
 
 df2 = pd.read_csv("gem5runs_microbench.csv")
 X_2 = df2["Benchmark"]
 Y1_2 = df2["IPC"]
 Y2_2 = df2["Cycles"]
+Y3_2 = df2["Instructions"]
 
 with open("statsdump.csv", "w") as csvfile:
     filewriter = csv.writer(
@@ -52,4 +54,4 @@ def plot(stat):
     plt.show()
 
 
-plot("IPC")
+plot("Instructions")
