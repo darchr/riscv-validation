@@ -49,6 +49,7 @@ and that the benchmarks have been [compiled](../microbench/README.md).
     ```
     This will generate gem5_microbench.csv containing the stats.
 
+<<<<<<< HEAD
 ### Running newStatsTrack.py
 
 1. Go into newStatsTrack.py and add the stat you want to track with the function call ```plot([YOUR STAT])```.
@@ -60,3 +61,18 @@ and that the benchmarks have been [compiled](../microbench/README.md).
 4. It will generate a graph comparing perf and gem5.
 
 5. It will also generate ```statsdump.csv``` which compares your chosen stat as a % difference from gem5.
+=======
+## Microbenchmarks
+A Script are provided for running the [aakahlow/microbenchmarks](https://github.com/aakahlow/microbenchmarks) on hardware.
+
+### Hardware
+Make sure that the benchmarks have been compiled in `../microbenchmarks`.
+There will be errors compiling some. Ignore them. Then run the script in 
+the microbench directory.
+```sh
+cd ../microbenchmarks
+make
+../stat-tracking/microbench.sh <repetitions>
+```
+This will generate microbenchmarks.csv containing the stats.
+>>>>>>> 63c2d49b3310e13260f3b1880449aed9ab945d0c
