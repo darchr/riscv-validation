@@ -48,3 +48,15 @@ and that the benchmarks have been [compiled](../microbench/README.md).
     ./gem5_microbench.sh ./src/python/gem5/prebuilt/hifivenew/HiFiveRun.py
     ```
     This will generate gem5_microbench.csv containing the stats.
+
+### Running newStatsTrack.py
+
+1. Go into newStatsTrack.py and add the stat you want to track with the function call ```plot([YOUR STAT])```.
+
+2. Edit ```pd.read_csv()``` to have the path of the .csv files to the gem5 and the perf runs.
+
+3. Run the file ```python3 newStatsTrack.py```.
+
+4. It will generate a graph comparing perf and gem5.
+
+5. It will also generate ```statsdump.csv``` which compares your chosen stat as a % difference from gem5.
