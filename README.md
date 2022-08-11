@@ -8,9 +8,10 @@ Scripts/tests/configurations needed for configuring a real RISC-V board in gem5 
     git clone https://github.com/darchr/riscv-validation.git
     ```
 
-2. Compile gem5 for RISCV.
+2. Compile gem5 for RISCV from the REU2022/riscv-validation branch.
     ```sh
     cd gem5_darchr
+    git checkout --track origin/REU2022/riscv-validation
     scons build/RISCV/gem5.opt -j<threads>
     ```
 
