@@ -48,7 +48,7 @@ must be passed as an argument to `gem5_bench.sh`. For example,
     ```sh
     ./gem5_bench.sh src/python/gem5/prebuilt/hifiveunmatched/hifive-run.py ./microbench/
     ```
-    This will generate gem5_microbench.csv containing the stats.
+    This will generate microbench-out/gem5_microbench.csv containing the stats.
 
 ## Microbenchmarks
 A Script is provided for running the [aakahlow/microbenchmarks](https://github.com/aakahlow/microbenchmarks) on hardware.
@@ -98,7 +98,7 @@ example,
     ```sh
     ./gem5_bench.sh src/python/gem5/prebuilt/hifiveunmatched/hifive-run.py ./microbenchmarks/ 1000
     ```
-    This will generate gem5_microbenchmarks.csv containing the stats.
+    This will generate microbenchmarks-out/gem5_microbenchmarks.csv containing the stats.
 
 ## Running newStatsTrack.py
 
