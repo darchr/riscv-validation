@@ -12,18 +12,20 @@
 run_sim () {
     BENCH=$(basename $2 .RISCV)
 
-    ./build/RISCV/gem5.opt $1 --riscv_binary=$2 --argv=$3
+    ./build/RISCV/gem5.opt --outdir=$OUTDIR/$BENCH $1 --riscv_binary=$2 --argv=$3
 
-    INSTRUCTIONS=$(grep board.processor.cores.core.numInsts m5out/stats.txt | grep -o -E '[0-9]+')
+    INSTRUCTIONS=$(grep board.processor.cores.core.numInsts $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+')
 
-    CYCLES=$(grep numCycles m5out/stats.txt | grep -o -E '[0-9]+')
+    CYCLES=$(grep numCycles $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+')
 
-    IPC=$(grep ipc m5out/stats.txt | grep -o -E '0.[0-9]+')
-    echo $BENCH,$INSTRUCTIONS,$CYCLES,$IPC >> gem5_$SUITE.csv
+    IPC=$(grep ipc $OUTDIR/$BENCH/stats.txt | grep -o -E '0.[0-9]+')
+    echo $BENCH,$INSTRUCTIONS,$CYCLES,$IPC >> $OUTDIR/gem5_$SUITE.csv
 }
 
 SUITE=$(echo $2 | tr -d ./)
-echo "Benchmark,instructions,cycles,ipc" > gem5_$SUITE.csv
+OUTDIR=$SUITE-out
+mkdir $OUTDIR
+echo "Benchmark,instructions,cycles,ipc" > $OUTDIR/gem5_$SUITE.csv
 
 for bin in $2/* ; do
     run_sim $1 $bin $3
