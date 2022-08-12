@@ -10,7 +10,7 @@
 
 #!/bin/sh
 run_sim () {
-    BENCH=$(basename $1 .RISCV)
+    BENCH=$(basename $2 .RISCV)
 
     ./build/RISCV/gem5.opt $1 --riscv_binary=$2 --argv=$3
 
