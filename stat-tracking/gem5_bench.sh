@@ -4,6 +4,7 @@
 # REQUIREMENTS:
 # This script must be run from the root gem5 source directory
 # The benchmark binaries must be located in directory $2
+# the stats will be outputed in <benchmark_suite_name>-out/
 # USAGE: ./gem5_bench.sh <path_to_gem5_config_script> <path_to_RISCV_binaries_dir> <argv[1]>
 # example:
     # ./gem5_microbench.sh ./src/python/gem5/prebuilt/hifivenew/HiFiveRun.py microbenchmarks 10
@@ -20,6 +21,7 @@ run_sim () {
 
     IPC=$(grep ipc $OUTDIR/$BENCH/stats.txt | grep -o -E '0.[0-9]+')
     echo $BENCH,$INSTRUCTIONS,$CYCLES,$IPC >> $OUTDIR/gem5_$SUITE.csv
+    echo '\n'
 }
 
 SUITE=$(echo $2 | tr -d ./)
@@ -28,5 +30,7 @@ mkdir $OUTDIR
 echo "Benchmark,instructions,cycles,ipc" > $OUTDIR/gem5_$SUITE.csv
 
 for bin in $2/* ; do
-    run_sim $1 $bin $3
+    run_sim $1 $bin $3 &
 done
+
+wait
