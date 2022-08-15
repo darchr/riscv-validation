@@ -35,6 +35,7 @@ board in gem5, do the following:
     ```sh
     git clone https://github.com/darchr/gem5.git gem5_darchr
     cd gem5_darchr
+    git checkout --track origin/REU2022/riscv-validation
     ```
 
 2. Compile the gem5 RISCV binary.
