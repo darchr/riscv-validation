@@ -26,4 +26,4 @@ compile the benchmarks.
     ```
 
 Setup is now complete. Instructions for gathering data from hardware and gem5
-can be found in [stat-tracking/README.md](stat-tracking/README.md).
+can be found in [scripts/README.md](scripts/README.md).
