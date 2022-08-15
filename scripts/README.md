@@ -100,15 +100,17 @@ example,
     ```
     This will generate microbenchmarks-out/gem5_microbenchmarks.csv containing the stats.
 
-## Running newStatsTrack.py
+## Running StatsTrack.py
 
-1. Go into newStatsTrack.py and add the stat you want to track with the function call ```plot([YOUR STAT])```.
+1. Go into ```../plots/StatsTrack.py``` and add the stat you want to track with the function call ```plot([YOUR STAT])```.
 
 2. Edit ```pd.read_csv()``` to have the path of the .csv files to the gem5 and the perf runs.
 
-3. Run the file ```python3 newStatsTrack.py```.
+3. Edit line 19 and line 38 with the name of the .csv you want the difference stats to write to.
 
-4. It will generate a graph comparing perf and gem5.
+4. Run the file ```python3 StatsTrack.py```.
 
-5. It will also generate ```statsdump.csv``` which compares your chosen stat as a % difference from gem5.
+5. It will generate a graph comparing perf and gem5.
+
+6. It will also generate a .csv with the name you chose which compares your chosen stat as a % difference from gem5.
 
