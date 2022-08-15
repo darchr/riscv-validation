@@ -4,13 +4,13 @@ import numpy as np
 import csv
 
 # making dataframe
-df1 = pd.read_csv("perf_microbench.csv")
+df1 = pd.read_csv("ayaz_perf_microbenchmarks.csv")
 X = df1["Benchmark"]
 Y1 = df1["IPC"]
 Y2 = df1["Cycles"]
 Y3 = df1["Instructions"]
 
-df2 = pd.read_csv("gem5runs_microbench.csv")
+df2 = pd.read_csv("ayaz_gem5_microbenchmarks.csv")
 X_2 = df2["Benchmark"]
 Y1_2 = df2["IPC"]
 Y2_2 = df2["Cycles"]
