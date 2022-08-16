@@ -16,18 +16,18 @@ run_sim () {
     ./build/RISCV/gem5.opt --outdir=$OUTDIR/$BENCH $1 --riscv_binary=$2 --argv=$3
 
     INSTRUCTIONS=$(grep board.processor.cores.core.numInsts $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+')
-
     CYCLES=$(grep numCycles $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+')
-
     IPC=$(grep ipc $OUTDIR/$BENCH/stats.txt | grep -o -E '0.[0-9]+')
-    echo $BENCH,$INSTRUCTIONS,$CYCLES,$IPC >> $OUTDIR/gem5_$SUITE.csv
-    echo '\n'
+    SECONDS=$(grep simSeconds $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+.[0-9]+')
+
+    echo -n $BENCH,$INSTRUCTIONS,$CYCLES,$SECONDS,$IPC, >> $OUTDIR/gem5_$SUITE.csv
+    python3 -c "print($INSTRUCTIONS/$SECONDS)" >> $OUTDIR/gem5_$SUITE.csv
 }
 
 SUITE=$(echo $2 | tr -d ./)
 OUTDIR=$SUITE-out
 mkdir $OUTDIR
-echo "Benchmark,instructions,cycles,ipc" > $OUTDIR/gem5_$SUITE.csv
+echo "Benchmark,instructions,cycles,seconds,ipc,ips" > $OUTDIR/gem5_$SUITE.csv
 
 for bin in $2/* ; do
     run_sim $1 $bin $3 &
