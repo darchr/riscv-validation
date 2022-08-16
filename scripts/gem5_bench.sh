@@ -17,11 +17,11 @@ run_sim () {
 
     INSTRUCTIONS=$(grep board.processor.cores.core.numInsts $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+')
     CYCLES=$(grep numCycles $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+')
-    IPC=$(grep ipc $OUTDIR/$BENCH/stats.txt | grep -o -E '0.[0-9]+')
     SECONDS=$(grep simSeconds $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+.[0-9]+')
+    IPC=$(grep ipc $OUTDIR/$BENCH/stats.txt | grep -o -E '0.[0-9]+')
+    IPS=$(python3 -c "print($INSTRUCTIONS/$SECONDS)")
 
-    echo -n $BENCH,$INSTRUCTIONS,$CYCLES,$SECONDS,$IPC, >> $OUTDIR/gem5_$SUITE.csv
-    python3 -c "print($INSTRUCTIONS/$SECONDS)" >> $OUTDIR/gem5_$SUITE.csv
+    echo $BENCH,$INSTRUCTIONS,$CYCLES,$SECONDS,$IPC,$IPS >> $OUTDIR/gem5_$SUITE.csv
 }
 
 SUITE=$(echo $2 | tr -d ./)
