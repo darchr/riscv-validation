@@ -46,7 +46,7 @@ def absoluteplot(stat):
             label = 'Million ' + stat
         elif stat == 'IPS':
             diff = ((df2[stat].iloc[b] - df1[stat].iloc[b]))/1000000000
-            label = 'Billion ' + stat
+            label = 'B' + stat
         else:
             diff = (df2[stat].iloc[b] - df1[stat].iloc[b])
         data[bench] = diff
@@ -127,4 +127,4 @@ def percentageplot(stat):
     plt.legend(bbox_to_anchor=(1.02, 1), loc='upper left')
     plt.show()
 
-absoluteplot('Cycles')
+absoluteplot('IPS')
