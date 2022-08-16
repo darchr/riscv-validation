@@ -3,7 +3,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import csv
 
-prefixes = ['CC', 'CF', 'CR', 'CS', 'DP', 'ED', 'EF', 'EI', 'EM', 'MC', 'MD', 'MI', 'ML', 'MM', 'M_', 'ST']
+#prefixes = ['CC', 'CF', 'CR', 'CS', 'DP', 'ED', 'EF', 'EI', 'EM', 'MC', 'MD', 'MI', 'ML', 'MM', 'M_', 'ST']
+prefixes = ['control', 'dependency', 'execution']
 
 data = {}
 data_sorted = {}
@@ -25,7 +26,7 @@ with open("microbench_cycles_diff.csv", "w") as csvfile:
     filewriter = csv.writer(
         csvfile, delimiter=",", quotechar="|", quoting=csv.QUOTE_MINIMAL
     )
-    filewriter.writerow(["name", "perf", "gem5", "% difference"])
+    filewriter.writerow(["name", "diff"])
     csvfile.close()
 
 def plot(stat):
@@ -35,17 +36,12 @@ def plot(stat):
     for b, bench in enumerate(X):
         diff = (df2[stat].iloc[b] - df1[stat].iloc[b])
         data[bench] = diff
-        with open("microbench_cycles_diff.csv", "a") as csvfile:
-            filewriter = csv.writer(
-                csvfile, delimiter=",", quotechar="|", quoting=csv.QUOTE_MINIMAL
-            )
-            filewriter.writerow([bench, df1[stat].iloc[b], df2[stat].iloc[b], diff])
-            csvfile.close()
     
     keys = sorted(data, key=data.get)
     for r in keys:
         data_sorted[r] = [data[r]]
 
+    print(data_sorted)
 
     # match a key from dictionary to an array of prefixes
     for k, v in data_sorted.items():
@@ -53,10 +49,16 @@ def plot(stat):
             if k.startswith(p):
                 data_sorted[k].append(prefixes.index(p))
     
-    print(data_sorted)
+    
 
     for b, bench in data_sorted.items():
         plt.bar(i, data_sorted[b][0], 0.2, color="C" + str(data_sorted[b][1]))
+        with open("microbench_cycles_diff.csv", "a") as csvfile:
+            filewriter = csv.writer(
+                csvfile, delimiter=",", quotechar="|", quoting=csv.QUOTE_MINIMAL
+            )
+            filewriter.writerow([b, data_sorted[b][0]])
+            csvfile.close()
         i = i + 1
     
     for i, pfrm in enumerate(prefixes):
@@ -71,4 +73,4 @@ def plot(stat):
     plt.show()
 
 
-plot("IPC")
+plot("Cycles")

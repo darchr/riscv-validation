@@ -1,0 +1,14 @@
+name,diff
+control_random,-39182455116
+control_complex,-5976068668
+control_conditional,1486758071
+dependency_chain1,1919133010
+control_small_bbl,10792127357
+dependency_chain4,15951776198
+dependency_chain5,16944236682
+dependency_chain2,16944480204
+dependency_chain6,16944722928
+dependency_chain3,17946353007
+control_switch,20431518297
+execution_int_add_ind,32950240552
+execution_int_mul_ind,41951464273
