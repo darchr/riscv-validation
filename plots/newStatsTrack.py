@@ -6,6 +6,7 @@ import csv
 prefixes = ['CC', 'CF', 'CR', 'CS', 'DP', 'ED', 'EF', 'EI', 'EM', 'MC', 'MD', 'MI', 'ML', 'MM', 'M_', 'ST']
 
 data = {}
+data_sorted = {}
 
 # making dataframe
 df1 = pd.read_csv("perf_microbench.csv")
@@ -32,11 +33,6 @@ def plot(stat):
     j = 0
 
     for b, bench in enumerate(X):
-        plt.bar(i - 0.1, float(df1[stat].iloc[b]), 0.2, color="C" + str(j))
-        j = int(not j)
-        plt.bar(i + 0.1, float(df2[stat].iloc[b]), 0.2, color="C" + str(j))
-        j = int(not j)
-        i = i + 1
         diff = (df2[stat].iloc[b] - df1[stat].iloc[b])
         data[bench] = diff
         with open("microbench_cycles_diff.csv", "a") as csvfile:
@@ -45,3 +41,34 @@ def plot(stat):
             )
             filewriter.writerow([bench, df1[stat].iloc[b], df2[stat].iloc[b], diff])
             csvfile.close()
+    
+    keys = sorted(data, key=data.get)
+    for r in keys:
+        data_sorted[r] = [data[r]]
+
+
+    # match a key from dictionary to an array of prefixes
+    for k, v in data_sorted.items():
+        for p in prefixes:
+            if k.startswith(p):
+                data_sorted[k].append(prefixes.index(p))
+    
+    print(data_sorted)
+
+    for b, bench in data_sorted.items():
+        plt.bar(i, data_sorted[b][0], 0.2, color="C" + str(data_sorted[b][1]))
+        i = i + 1
+    
+    for i, pfrm in enumerate(prefixes):
+        plt.bar(0, 0, color="C" + str(i), label=pfrm)
+    
+    plt.xticks((np.arange(len(data_sorted))), data_sorted, rotation=80, ha="center", fontsize=11)
+
+    plt.xlabel("Benchmarks")
+    plt.ylabel(stat)
+    plt.title("Benchmark vs. " + stat)
+    plt.legend(bbox_to_anchor=(1.02, 1), loc='upper left')
+    plt.show()
+
+
+plot("IPC")
