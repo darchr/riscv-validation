@@ -8,7 +8,7 @@
 
 #!/bin/sh
 
-echo "Benchmark,instructions,cycles,ipc" > microbenchmarks.csv
+echo "Benchmark,instructions,cycles,seconds,ipc,ips" > microbenchmarks.csv
 
 for exe in $(ls | grep -o -E '^([^.]+)$') ; do
     if [ "$exe" = "LICENSE" ] || [ "$exe" = "Makefile" ]; then
@@ -18,16 +18,11 @@ for exe in $(ls | grep -o -E '^([^.]+)$') ; do
     echo Running $exe
     PERF_DATA=$(perf stat -r 1 -e cycles:u,instructions:u -o /dev/stdout ./$exe $1)
 
-    echo -n $exe | tr -d '/' >> microbenchmarks.csv
-    echo -n "," >> microbenchmarks.csv
-
     INSTRUCTIONS=$(echo $PERF_DATA | grep -o -E '[0-9]+ instructions' | grep -o -E '[0-9]+' | tr -d '\n')
-    echo -n $INSTRUCTIONS >> microbenchmarks.csv
-    echo -n "," >> microbenchmarks.csv
-
     CYCLES=$(echo $PERF_DATA | grep -o -E '[0-9]+ cycles' | grep -o -E '[0-9]+')
-    echo -n $CYCLES >> microbenchmarks.csv
-    echo -n "," >> microbenchmarks.csv
+    SECONDS=$(echo $PERF_DATA | grep -o -E "[0-9]+.[0-9]+ seconds time elapsed" | grep -o -E '[0-9]+.[0-9]+')
 
-    python3 -c "print($INSTRUCTIONS/$CYCLES)" >> microbenchmarks.csv
+    echo -n $exe,$INSTRUCTIONS,$CYCLES,$SECONDS, >> microbenchmarks.csv
+    python3 -c "print($INSTRUCTIONS/$CYCLES, end=',')" >> microbenchmarks.csv
+    python3 -c "print($INSTRUCTIONS/$SECONDS)" >> microbenchmarks.csv
 done
