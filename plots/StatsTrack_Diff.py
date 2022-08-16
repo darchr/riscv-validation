@@ -10,19 +10,23 @@ data = {}
 data_sorted = {}
 
 # making dataframe
-df1 = pd.read_csv("perf_microbench.csv")
+df1 = pd.read_csv("ayaz_perf_microbenchmarks.csv")
 X = df1["Benchmark"]
 Y1 = df1["IPC"]
 Y2 = df1["Cycles"]
 Y3 = df1["Instructions"]
+Y4 = df1["Seconds"]
+Y5 = df1["IPS"]
 
-df2 = pd.read_csv("gem5runs_microbench.csv")
+df2 = pd.read_csv("ayaz_gem5_microbenchmarks.csv")
 X_2 = df2["Benchmark"]
 Y1_2 = df2["IPC"]
 Y2_2 = df2["Cycles"]
 Y3_2 = df2["Instructions"]
+Y4_2 = df2["Seconds"]
+Y5_2 = df2["IPS"]
 
-with open("microbench_cycles_diff.csv", "w") as csvfile:
+with open("microbench_seconds_diff.csv", "w") as csvfile:
     filewriter = csv.writer(
         csvfile, delimiter=",", quotechar="|", quoting=csv.QUOTE_MINIMAL
     )
@@ -53,7 +57,7 @@ def plot(stat):
 
     for b, bench in data_sorted.items():
         plt.bar(i, data_sorted[b][0], 0.2, color="C" + str(data_sorted[b][1]))
-        with open("microbench_cycles_diff.csv", "a") as csvfile:
+        with open("microbench_seconds_diff.csv", "a") as csvfile:
             filewriter = csv.writer(
                 csvfile, delimiter=",", quotechar="|", quoting=csv.QUOTE_MINIMAL
             )
@@ -73,4 +77,4 @@ def plot(stat):
     plt.show()
 
 
-plot("Cycles")
+plot("Seconds")
