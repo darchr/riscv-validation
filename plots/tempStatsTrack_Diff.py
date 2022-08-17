@@ -35,6 +35,7 @@ with open("microbench_seconds_diff.csv", "w") as csvfile:
     csvfile.close()
 
 def absoluteplot(stat):
+    plt.rcParams["figure.figsize"]=25,10
     i = 0
     j = 0
     label = stat
