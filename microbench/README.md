@@ -1,7 +1,9 @@
 # microbench
 This is a fork from darchr/microbench, which itself is a fork from 
 VerticalResearchGroup/microbench. This configuration of microbench is
-for use with the HiFive Unmatched board running Ubuntu 22.04.
+for use with the HiFive Unmatched board running Ubuntu 22.04. All optmization
+flags have been removed, including the universal -O3 and local -O1 and -O2 in
+benchmarks DP1d, EF, DPcvt, MIP, DP1f.
 
 To build RISCV binaries for the Unmatched board,
 ```shell

@@ -3,7 +3,6 @@ include ../make.config
 CC_X86?=gcc
 CC_ARM?=arm-linux-gnueabi-gcc
 CC_RISCV?=~/opt/riscv/bin/riscv64-unknown-elf-gcc
-OPT?=-O3
 
 #-fno-tree-vectorize 
 CFLAGS+=${OPT} -I../
