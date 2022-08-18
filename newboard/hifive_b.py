@@ -97,17 +97,17 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
     def __init__(
         self,
         clk_freq: str,
-        processor: U74Processor,
-        memory: U74Memory,
-        cache_hierarchy: HiFiveCacheHierarchy,
+        # processor: U74Processor,
+        # memory: U74Memory,
+        # cache_hierarchy: HiFiveCacheHierarchy,
         is_fs: bool,
     ) -> None:
-        super().__init__(clk_freq, processor, memory, cache_hierarchy)
+        super().__init__(clk_freq, U74Processor, U74Memory, HiFiveCacheHierarchy)
         self._is_fs = is_fs
-        if processor.get_isa() != ISA.RISCV:
-            raise Exception("The RISCVBoard requires a processor using the"
-                "RISCV ISA. Current processor ISA: "
-                f"'{processor.get_isa().name}'.")
+        # if processor.get_isa() != ISA.RISCV:
+        #     raise Exception("The RISCVBoard requires a processor using the"
+        #         "RISCV ISA. Current processor ISA: "
+        #         f"'{processor.get_isa().name}'.")
     
     @overrides(AbstractSystemBoard)
     def _setup_board(self) -> None:
