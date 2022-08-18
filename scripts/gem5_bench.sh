@@ -13,7 +13,7 @@
 run_sim () {
     BENCH=$(basename $2 .RISCV)
 
-    ./build/RISCV/gem5.opt --outdir=$OUTDIR/$BENCH $1 --riscv_binary=$2 --argv=$3
+    ./build/RISCV/gem5.opt --outdir=$OUTDIR/$BENCH $1 $2 --argv=$3
 
     INSTRUCTIONS=$(grep board.processor.cores.core.numInsts $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+')
     CYCLES=$(grep numCycles $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+')
