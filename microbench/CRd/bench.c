@@ -3,7 +3,7 @@
 
 #define ASIZE 2048
 #define STEP   128
-#define ITERS  256
+#define ITERS   20
 
 __attribute__ ((noinline))
 int rec(int i){
