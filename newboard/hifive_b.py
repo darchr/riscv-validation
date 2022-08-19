@@ -100,14 +100,15 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
         clk_freq: str,
         is_fs: bool,
     ) -> None:
-        self._set_fullsystem(True)
-        print(self.is_fullsystem())
         cache_hierarchy = HiFiveCacheHierarchy(l2_size="2MB")
 
         memory = U74Memory()
 
         processor = U74Processor()
         super().__init__(clk_freq, processor, memory, cache_hierarchy)
+
+        self._set_fullsystem(True)
+        print(self.is_fullsystem())
         #self.is_fs = is_fs
         # if processor.get_isa() != ISA.RISCV:
         #     raise Exception("The RISCVBoard requires a processor using the"
@@ -128,7 +129,7 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
 
             # Add the RTC
             # TODO: Why 100MHz? Does something else need to change when this does?
-            self.platform.rtc = RiscvRTC(frequency=Frequency("100MHz"))
+            self.platform.rtc = RiscvRTC(frequency=Frequency("1MHz"))
             self.platform.clint.int_pin = self.platform.rtc.int_pin
 
             # Incoherent I/O bus
