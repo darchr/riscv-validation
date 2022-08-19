@@ -3,7 +3,7 @@
 
 #define ASIZE 2048
 #define STEP   128
-#define ITERS   18
+#define ITERS   32
 
 __attribute__ ((noinline))
 int fib(int i ){
