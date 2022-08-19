@@ -43,7 +43,7 @@ from gem5.components.processors.simple_processor import SimpleProcessor
 from gem5.utils.requires import requires
 from gem5.isas import ISA
 from gem5.components.boards.simple_board import SimpleBoard
-from .hifive_board import U74Memory
+from python.gem5.prebuilt.hifiveunmatched.hifive_board import U74Memory
 from python.gem5.prebuilt.hifiveunmatched.hifive_cache import (
     HiFiveCacheHierarchy,
 )
@@ -97,13 +97,15 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
     def __init__(
         self,
         clk_freq: str,
-        # processor: U74Processor,
-        # memory: U74Memory,
-        # cache_hierarchy: HiFiveCacheHierarchy,
         is_fs: bool,
     ) -> None:
+        cache_hierarchy = HiFiveCacheHierarchy(l2_size="2MB")
+
+        memory = U74Memory()
+
+        processor = U74Processor()
+        super().__init__(clk_freq, processor, memory, cache_hierarchy)
         #self.is_fs = is_fs
-        super().__init__(clk_freq, U74Processor, U74Memory, HiFiveCacheHierarchy)
         # if processor.get_isa() != ISA.RISCV:
         #     raise Exception("The RISCVBoard requires a processor using the"
         #         "RISCV ISA. Current processor ISA: "
