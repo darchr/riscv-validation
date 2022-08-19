@@ -99,6 +99,8 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
         clk_freq: str,
         is_fs: bool,
     ) -> None:
+        self._set_fullsystem(is_fs)
+
         cache_hierarchy = HiFiveCacheHierarchy(l2_size="2MB")
 
         memory = U74Memory()
