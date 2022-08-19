@@ -26,8 +26,9 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import os
+import re
 
-from typing import List
+from typing import List, Optional
 
 from gem5.utils.override import overrides
 from gem5.components.boards.abstract_system_board import AbstractSystemBoard
@@ -99,8 +100,8 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
         clk_freq: str,
         is_fs: bool,
     ) -> None:
-        self._set_fullsystem(is_fs)
-
+        self._set_fullsystem(True)
+        print(self.is_fullsystem())
         cache_hierarchy = HiFiveCacheHierarchy(l2_size="2MB")
 
         memory = U74Memory()
@@ -115,7 +116,7 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
     
     @overrides(AbstractSystemBoard)
     def _setup_board(self) -> None:
-        if self._is_fs:
+        if self.is_fullsystem():
             self.workload = RiscvLinux()
 
             # Contains a CLINT, PLIC, UART, and some functions for the dtb, etc.
@@ -127,7 +128,7 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
 
             # Add the RTC
             # TODO: Why 100MHz? Does something else need to change when this does?
-            self.platform.rtc = RiscvRTC(frequency=Frequency("1MHz"))
+            self.platform.rtc = RiscvRTC(frequency=Frequency("100MHz"))
             self.platform.clint.int_pin = self.platform.rtc.int_pin
 
             # Incoherent I/O bus
@@ -161,7 +162,7 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
 
     def _setup_io_devices(self) -> None:
         """Connect the I/O devices to the I/O bus in FS mode."""
-        if self._is_fs:
+        if self.is_fullsystem():
             #Add PCI
             self.platform.pci_host.pio = self.iobus.mem_side_ports
 
@@ -230,11 +231,11 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
 
     @overrides(AbstractSystemBoard)
     def has_io_bus(self) -> bool:
-        return self._is_fs
+        return self.is_fullsystem()
     
     @overrides(AbstractSystemBoard)
     def get_io_bus(self) -> IOXBar:
-        if self._is_fs:
+        if self.is_fullsystem():
             return self.iobus
         else:
             raise NotImplementedError(
@@ -244,11 +245,11 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
     
     @overrides(AbstractSystemBoard)
     def has_coherent_io(self) -> bool:
-        return self._is_fs
+        return self.is_fullsystem()
     
     @overrides(AbstractSystemBoard)
     def get_mem_side_coherent_io_port(self) -> Port:
-        if self._is_fs:
+        if self.is_fullsystem():
             return self.iobus.mem_side_ports
         else:
             raise NotImplementedError(
@@ -258,7 +259,7 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
     
     @overrides(AbstractSystemBoard)
     def _setup_memory_ranges(self):
-        if self._is_fs:
+        if self.is_fullsystem():
             memory = self.get_memory()
             mem_size = memory.get_size()
             self.mem_ranges = [AddrRange(start=0x80000000, size=mem_size)]
@@ -525,4 +526,27 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
     @overrides(KernelDiskWorkload)
     def get_default_kernel_args(self) -> List[str]:
         return ["console=ttyS0", "root={root_value}", "ro"]
+    
+    @overrides(KernelDiskWorkload)
+    def set_kernel_disk_workload(
+        self,
+        kernel: AbstractResource,
+        disk_image: AbstractResource,
+        bootloader: Optional[AbstractResource] = None,
+        readfile: Optional[str] = None,
+        readfile_contents: Optional[str] = None,
+        kernel_args: Optional[List[str]] = None,
+        exit_on_work_items: bool = True,
+    ) -> None:
+        self.workload = RiscvLinux()
+        KernelDiskWorkload.set_kernel_disk_workload(
+            self=self,
+            kernel=kernel,
+            disk_image=disk_image,
+            bootloader=bootloader,
+            readfile=readfile,
+            readfile_contents=readfile_contents,
+            kernel_args=kernel_args,
+            exit_on_work_items=exit_on_work_items,
+        )
         
