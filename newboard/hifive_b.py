@@ -110,7 +110,9 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
         requires(isa_required=ISA.RISCV)
         self._fs = is_fs
 
-        cache_hierarchy = HiFiveCacheHierarchy(l2_size=l2_size)
+        cache_hierarchy = HiFiveCacheHierarchy(
+            l2_size=l2_size
+        )
 
         memory = U74Memory()
 
