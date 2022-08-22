@@ -1,9 +1,9 @@
 from gem5.resources.resource import Resource
 from gem5.simulate.simulator import Simulator
-from hifive_b import HiFiveBoard
+from python.gem5.prebuilt.hifiveunmatched.hifive_b import HiFiveBoard
 
 
-board = HiFiveBoard("1.2GHz", True)
+board = HiFiveBoard("1.2GHz", "2MB", True)
 
 command =  "echo 'This is running on U74 CPU core.';" \
         + "sleep 1;" \

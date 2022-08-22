@@ -98,18 +98,19 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
     def __init__(
         self,
         clk_freq: str,
+        l2_size: str,
         is_fs: bool,
     ) -> None:
-        cache_hierarchy = HiFiveCacheHierarchy(l2_size="2MB")
+        requires(isa_required=ISA.RISCV)
+        self._fs = is_fs
+
+        cache_hierarchy = HiFiveCacheHierarchy(l2_size=l2_size)
 
         memory = U74Memory()
 
         processor = U74Processor()
         super().__init__(clk_freq, processor, memory, cache_hierarchy)
 
-        self._set_fullsystem(True)
-        print(self.is_fullsystem())
-        #self.is_fs = is_fs
         # if processor.get_isa() != ISA.RISCV:
         #     raise Exception("The RISCVBoard requires a processor using the"
         #         "RISCV ISA. Current processor ISA: "
@@ -117,7 +118,7 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
     
     @overrides(AbstractSystemBoard)
     def _setup_board(self) -> None:
-        if self.is_fullsystem():
+        if self._fs:
             self.workload = RiscvLinux()
 
             # Contains a CLINT, PLIC, UART, and some functions for the dtb, etc.
@@ -163,7 +164,7 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
 
     def _setup_io_devices(self) -> None:
         """Connect the I/O devices to the I/O bus in FS mode."""
-        if self.is_fullsystem():
+        if self._fs:
             #Add PCI
             self.platform.pci_host.pio = self.iobus.mem_side_ports
 
@@ -232,11 +233,11 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
 
     @overrides(AbstractSystemBoard)
     def has_io_bus(self) -> bool:
-        return self.is_fullsystem()
+        return self._fs
     
     @overrides(AbstractSystemBoard)
     def get_io_bus(self) -> IOXBar:
-        if self.is_fullsystem():
+        if self._fs:
             return self.iobus
         else:
             raise NotImplementedError(
@@ -246,11 +247,11 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
     
     @overrides(AbstractSystemBoard)
     def has_coherent_io(self) -> bool:
-        return self.is_fullsystem()
+        return self._fs
     
     @overrides(AbstractSystemBoard)
     def get_mem_side_coherent_io_port(self) -> Port:
-        if self.is_fullsystem():
+        if self._fs:
             return self.iobus.mem_side_ports
         else:
             raise NotImplementedError(
@@ -260,7 +261,7 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
     
     @overrides(AbstractSystemBoard)
     def _setup_memory_ranges(self):
-        if self.is_fullsystem():
+        if self._fs:
             memory = self.get_memory()
             mem_size = memory.get_size()
             self.mem_ranges = [AddrRange(start=0x80000000, size=mem_size)]
