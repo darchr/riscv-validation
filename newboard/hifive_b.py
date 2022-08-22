@@ -115,13 +115,13 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
         memory = U74Memory()
 
         processor = U74Processor()
-        super().__init__(clk_freq, processor, memory, cache_hierarchy)
+        super().__init__(
+            clk_freq=clk_freq,  # real system is 1.0 to 1.5 GHz
+            processor=processor,
+            memory=memory,
+            cache_hierarchy=cache_hierarchy,
+        )
 
-        # if processor.get_isa() != ISA.RISCV:
-        #     raise Exception("The RISCVBoard requires a processor using the"
-        #         "RISCV ISA. Current processor ISA: "
-        #         f"'{processor.get_isa().name}'.")
-    
     @overrides(AbstractSystemBoard)
     def _setup_board(self) -> None:
         if self._fs:
