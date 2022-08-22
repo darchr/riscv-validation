@@ -89,10 +89,9 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
 
     At a high-level, this is based on the HiFive Unmatched board from SiFive.
 
-    This board assumes that you will be booting Linux.
+    This board assumes that you will be booting Linux for fullsystem emulation.
 
-    **Limitations**
-    * Only works with classic caches
+    Datasheet for inbuilt params can be found here: https://sifive.cdn.prismic.io/sifive/1a82e600-1f93-4f41-b2d8-86ed8b16acba_fu740-c000-manual-v1p6.pdf
     """
 
     def __init__(
@@ -101,6 +100,13 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
         l2_size: str,
         is_fs: bool,
     ) -> None:
+        """
+
+        :param clk_freq: The clock frequency of the system
+        :param l2_size: The size of the L2 cache
+        :param is_fs: Whether the system is a full system or not
+
+        """
         requires(isa_required=ISA.RISCV)
         self._fs = is_fs
 
@@ -129,8 +135,12 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
             self.platform.clint.num_threads = self.processor.get_num_cores()
 
             # Add the RTC
-            # TODO: Why 100MHz? Does something else need to change when this does?
-            self.platform.rtc = RiscvRTC(frequency=Frequency("1MHz"))
+            """
+            The frequency of the RTC for the system is set to 1MHz. 
+            Details can be found on page 77, section 7.1 of the datasheet.
+
+            """
+            self.platform.rtc = RiscvRTC(frequency=Frequency("1MHz")) # page 77, section 7.1
             self.platform.clint.int_pin = self.platform.rtc.int_pin
 
             # Incoherent I/O bus
@@ -261,6 +271,12 @@ class HiFiveBoard(AbstractSystemBoard, KernelDiskWorkload, SEBinaryWorkload):
     
     @overrides(AbstractSystemBoard)
     def _setup_memory_ranges(self):
+        """
+        Starting range for the DDR memory is 0x80000000.
+
+        Details can be found on page 201, section 23.2.3 of the datasheet.
+
+        """
         if self._fs:
             memory = self.get_memory()
             mem_size = memory.get_size()
