@@ -4,7 +4,7 @@
 
 #!/bin/sh
 
-echo "Benchmark,instructions,cycles,seconds" > microbench.csv
+echo "Benchmark,instructions,cycles,seconds" > perf_microbench.csv
 
 for dir in */ ; do
     echo "Running $dir"
@@ -16,5 +16,5 @@ for dir in */ ; do
 
     SECONDS=$(echo $PERF_DATA | grep -o -E "[0-9]+.[0-9]+ seconds time elapsed" | grep -o -E '[0-9]+.[0-9]+')
 
-    echo $dir,$INSTRUCTIONS,$CYCLES,$SECONDS | tr -d '/' >> microbench.csv
+    echo $dir,$INSTRUCTIONS,$CYCLES,$SECONDS | tr -d '/' >> perf_microbench.csv
 done
