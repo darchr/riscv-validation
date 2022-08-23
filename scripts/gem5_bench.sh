@@ -18,16 +18,14 @@ run_sim () {
     INSTRUCTIONS=$(grep board.processor.cores.core.numInsts $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+')
     CYCLES=$(grep numCycles $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+')
     SECONDS=$(grep simSeconds $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+.[0-9]+')
-    IPC=$(grep ipc $OUTDIR/$BENCH/stats.txt | grep -o -E '0.[0-9]+')
-    IPS=$(python3 -c "print($INSTRUCTIONS/$SECONDS)")
 
-    echo $BENCH,$INSTRUCTIONS,$CYCLES,$SECONDS,$IPC,$IPS >> $OUTDIR/gem5_$SUITE.csv
+    echo $BENCH,$INSTRUCTIONS,$CYCLES,$SECONDS >> $OUTDIR/gem5_$SUITE.csv
 }
 
 SUITE=$(echo $2 | tr -d ./)
 OUTDIR=$SUITE-out
 mkdir $OUTDIR
-echo "Benchmark,instructions,cycles,seconds,ipc,ips" > $OUTDIR/gem5_$SUITE.csv
+echo "Benchmark,instructions,cycles,seconds" > $OUTDIR/gem5_$SUITE.csv
 
 for bin in $2/* ; do
     run_sim $1 $bin $3 &
