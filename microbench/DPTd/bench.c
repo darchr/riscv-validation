@@ -3,7 +3,7 @@
 #include "math.h"
 
 #define ASIZE   128
-#define ITERS    16
+#define ITERS  3200
 
 double arrA[ASIZE];
 double arrB[ASIZE];
