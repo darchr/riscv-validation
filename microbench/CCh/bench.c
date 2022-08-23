@@ -3,8 +3,8 @@
 #include "common.h"
 
 #define ASIZE     0
-#define STEP  16384
-#define ITERS    32
+#define STEP  40960
+#define ITERS    80
 
 __attribute__ ((noinline))
 int loop(int zero) {

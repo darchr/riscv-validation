@@ -2,8 +2,8 @@
 #include "common.h"
 
 #define ASIZE 2048
-#define STEP   512
-#define ITERS  512
+#define STEP  2048
+#define ITERS 2048
 
 __attribute__ ((noinline))
 int loop(int zero) {
