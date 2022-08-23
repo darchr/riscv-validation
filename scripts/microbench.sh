@@ -4,7 +4,7 @@
 
 #!/bin/sh
 
-echo "Benchmark,instructions,cycles,seconds,ipc,ips" > microbench.csv
+echo "Benchmark,instructions,cycles,seconds" > microbench.csv
 
 for dir in */ ; do
     echo "Running $dir"
@@ -16,7 +16,5 @@ for dir in */ ; do
 
     SECONDS=$(echo $PERF_DATA | grep -o -E "[0-9]+.[0-9]+ seconds time elapsed" | grep -o -E '[0-9]+.[0-9]+')
 
-    echo -n $dir,$INSTRUCTIONS,$CYCLES,$SECONDS, | tr -d '/' >> microbench.csv
-    python3 -c "print($INSTRUCTIONS/$CYCLES, end=',')" >> microbench.csv
-    python3 -c "print($INSTRUCTIONS/$SECONDS)" >> microbench.csv
+    echo $dir,$INSTRUCTIONS,$CYCLES,$SECONDS | tr -d '/' >> microbench.csv
 done

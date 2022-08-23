@@ -22,7 +22,5 @@ for exe in $(ls | grep -o -E '^([^.]+)$') ; do
     CYCLES=$(echo $PERF_DATA | grep -o -E '[0-9]+ cycles' | grep -o -E '[0-9]+')
     SECONDS=$(echo $PERF_DATA | grep -o -E "[0-9]+.[0-9]+ seconds time elapsed" | grep -o -E '[0-9]+.[0-9]+')
 
-    echo -n $exe,$INSTRUCTIONS,$CYCLES,$SECONDS, >> microbenchmarks.csv
-    python3 -c "print($INSTRUCTIONS/$CYCLES, end=',')" >> microbenchmarks.csv
-    python3 -c "print($INSTRUCTIONS/$SECONDS)" >> microbenchmarks.csv
+    echo $exe,$INSTRUCTIONS,$CYCLES,$SECONDS >> microbenchmarks.csv
 done
