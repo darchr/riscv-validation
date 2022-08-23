@@ -5,7 +5,7 @@
 
 #define ASIZE  65536
 #define STEP     128
-#define ITERS  65536
+#define ITERS  3276800
 #define LEN     2048
 
 

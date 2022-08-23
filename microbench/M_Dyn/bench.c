@@ -6,7 +6,7 @@
 #define AMULT 65536
 #define ASIZE    32
 #define AMASK (ASIZE-1)
-#define ITERS  4096
+#define ITERS  819200
 
 
 int arr1[ASIZE*AMULT];
