@@ -8,7 +8,7 @@ echo "Benchmark,instructions,cycles,seconds" > microbench.csv
 
 for dir in */ ; do
     echo "Running $dir"
-    PERF_DATA=$(perf stat -r 1 -e cycles:u,instructions:u -o /dev/stdout $dir/bench.RISCV)
+    PERF_DATA=$(perf stat -r $1 -e cycles:u,instructions:u -o /dev/stdout $dir/bench.RISCV)
 
     INSTRUCTIONS=$(echo $PERF_DATA | grep -o -E '[0-9]+ instructions' | grep -o -E '[0-9]+' | tr -d '\n')
 
