@@ -1,4 +1,4 @@
-Benchmark,instructions,cycles,seconds,branches,branch-misses
+Benchmark,Instructions,Cycles,Seconds,Branches,Branch-misses
 DPcvt,20503390,26283571,0.021894,824191,1294
 MIM,18778789,43463604,0.036205,213549,3690
 MIM2,18778804,38192234,0.031814,213555,3690

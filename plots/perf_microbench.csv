@@ -1,4 +1,4 @@
-Benchmark,instructions,cycles,seconds,branches,branch-misses
+Benchmark,Instructions,Cycles,Seconds,Branches,Branch-misses
 CCa,105305713,89106975,0.0751188,8433863,23572
 CCe,270594268,230647479,0.1936301,18054059,32104
 CCh,98737402,90190180,0.0760859,6596438,24915
