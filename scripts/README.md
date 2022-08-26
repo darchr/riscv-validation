@@ -9,11 +9,12 @@ Scripts are provided for running the VRG microbenchmarks on gem5 and hardware.
 ### Hardware
 Make sure that the benchmarks have been [compiled](../microbench/README.md) in
 `../microbench`. Then run this script in the microbench directory and pass
-in the number of iterations perf should do per benchmark (-r flag for perf).
+in the path to the perf binary and the number of iterations that perf should do
+per benchmark (-r flag for perf).
 Perf will automatically report the average for the statistics.
 ```sh
 cd ../microbench
-../stat-tracking/microbench.sh <perf_iterations>
+../stat-tracking/microbench.sh <perf_binary_path> <perf_iterations>
 ```
 This will generate microbench.csv containing the stats.
 
