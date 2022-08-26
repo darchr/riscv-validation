@@ -18,14 +18,16 @@ run_sim () {
     INSTRUCTIONS=$(grep board.processor.cores.core.numInsts $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+')
     CYCLES=$(grep numCycles $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+')
     SECONDS=$(grep simSeconds $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+.[0-9]+')
+    BRANCHES=$(grep board.processor.cores.core.branchPred.lookups $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+')
+    BRANCH_MISSES=$(grep board.processor.cores.core.branchPred.condIncorrect $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+')
 
-    echo $BENCH,$INSTRUCTIONS,$CYCLES,$SECONDS >> $OUTDIR/gem5_$SUITE.csv
+    echo $BENCH,$INSTRUCTIONS,$CYCLES,$SECONDS,$BRANCHES,$BRANCH_MISSES >> $OUTDIR/gem5_$SUITE.csv
 }
 
 SUITE=$(echo $2 | tr -d ./)
 OUTDIR=$SUITE-out
 mkdir $OUTDIR
-echo "Benchmark,instructions,cycles,seconds" > $OUTDIR/gem5_$SUITE.csv
+echo "Benchmark,instructions,cycles,seconds,branches,branch-misses" > $OUTDIR/gem5_$SUITE.csv
 
 for bin in $2/* ; do
     run_sim $1 $bin $3 &
