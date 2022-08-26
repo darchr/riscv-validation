@@ -59,11 +59,11 @@ A Script is provided for running the [aakahlow/microbenchmarks](https://github.c
 ### Hardware
 Make sure that the benchmarks have been compiled in `../microbenchmarks`.
 There will be errors compiling some. Ignore them. Then run the script in 
-the microbench directory.
+the microbenchmarks directory.
 ```sh
 cd ../microbenchmarks
 make
-../stat-tracking/microbench.sh <repetitions>
+../stat-tracking/microbenchmarks.sh <perf_binary_path> <benchmark_argv[1]>
 ```
 This will generate microbenchmarks.csv containing the stats.
 
