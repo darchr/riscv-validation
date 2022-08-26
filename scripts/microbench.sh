@@ -14,7 +14,7 @@ for dir in */ ; do
 
     CYCLES=$(echo $PERF_DATA | grep -o -E '[0-9]+ cycles' | grep -o -E '[0-9]+')
 
-    SECONDS=$(echo $PERF_DATA | grep -o -E "[0-9]+.[0-9]+ seconds time elapsed" | grep -o -E '[0-9]+.[0-9]+')
+    SECONDS=$(echo $PERF_DATA | grep -o -E "[0-9]+.[0-9]+\s?\+?\-?\s?[0-9]+?.?[0-9]+? seconds time elapsed" | grep -o -E '[0-9]+.[0-9]+' | head -n1)
 
     echo $dir,$INSTRUCTIONS,$CYCLES,$SECONDS | tr -d '/' >> perf_microbench.csv
 done
