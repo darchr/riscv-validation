@@ -1,4 +1,4 @@
-Benchmark,instructions,cycles,seconds,branches,branch-misses
+Benchmark,Instructions,Cycles,Seconds,Branches,Branch-misses
 DP1d,42675641,52979905,0.044132,1377551,663
 CS1,185370265,202663840,0.168819,33563509,57840
 EF,112005812,194038981,0.161634,2000879,467
