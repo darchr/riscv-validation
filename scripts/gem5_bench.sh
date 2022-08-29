@@ -18,7 +18,7 @@ run_sim () {
     INSTRUCTIONS=$(grep board.processor.cores.core.numInsts $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+')
     CYCLES=$(grep numCycles $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+')
     SECONDS=$(grep simSeconds $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+.[0-9]+')
-    BRANCHES=$(grep board.processor.cores.core.branchPred.lookups $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+')
+    BRANCHES=$(grep board.processor.cores.core.commitedControl_0::CondCtrl $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+' | tail -n1)
     BRANCH_MISSES=$(grep board.processor.cores.core.branchPred.condIncorrect $OUTDIR/$BENCH/stats.txt | grep -o -E '[0-9]+')
 
     echo $BENCH,$INSTRUCTIONS,$CYCLES,$SECONDS,$BRANCHES,$BRANCH_MISSES >> $OUTDIR/gem5_$SUITE.csv
