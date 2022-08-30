@@ -30,5 +30,14 @@ Scripts/tests/configurations needed for configuring a real RISC-V board in gem5 
     This will put all microbench binaries in microbench-bins and all
     microbenchmarks binaries in microbenchmarks-bins.
 
-Setup is now complete. Instructions for gathering data from hardware and gem5
+4. Run all benchmarks on hardware. Pass the perf binary path, number of perf
+iterations on microbench (-r flag for perf), and the command line argument for
+microbenchmarks as positional arguments 1, 2, and 3 respectively. For example,
+if you are using the patched kernel that allows for additional perf events
+on the HiFive Unmatched:
+    ```sh
+    ./run_benchmarks.sh ../kernel/linux-5.19.4/tools/perf/perf 10 1000000000
+    ```
+
+More detailed instructions for gathering data from both hardware and gem5
 can be found in [scripts/README.md](scripts/README.md).
