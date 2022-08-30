@@ -71,7 +71,7 @@
 
 ### Adding the Core to the gem5 Standard Library
 
-1. To add your core to the Standard Library, inherit from ``AbstractCore`` from ``gem5.components.processors.abstract_core``, and design it to be similar to SimpleProcessor from ``src/python/gem5/components.processors/simple_core.py``
+1. To add your core to the Standard Library, inherit from ``AbstractCore`` from ``gem5.components.processors.abstract_core``, and design it to be similar to SimpleCore from ``src/python/gem5/components.processors/simple_core.py``
 
 2. Assign the CPU you created in `self.core` and assign the core_id accepted into the stdlib core as cpu_id in your created core. If your core runs on a specific ISA, it is also recommended to add a requires statement for that ISA.
 
@@ -83,6 +83,10 @@
      
 
 ## Processor
+
+1. To add your processor to the Standard Library, inherit from ``AbstractProcessor`` from ``gem5.components.processors.abstract_processor``, and design it to be similar to SimpleProcessor from ``src/python/gem5/components.processors/simple_processor.py``
+
+2. In the function ``create_core``, replace the core with your own created core. In ``__init__``, assign `self._cpu_type` as the CPU you based your board on. For example, if you used MinorCPU: ```self._cpu_type = CPUTypes.MINOR```
 
 
 
