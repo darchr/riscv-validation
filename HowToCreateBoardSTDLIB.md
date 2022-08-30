@@ -88,6 +88,15 @@
 
 2. In the function ``create_core``, replace the core with your own created core. In ``__init__``, assign `self._cpu_type` as the CPU you based your board on. For example, if you used MinorCPU: ```self._cpu_type = CPUTypes.MINOR```
 
+## Memory
+
+Choose the memory that is most close to your system from ``gem5.components.memory``, and initialize it with the size you need. To adjust a parameter like the starting address, use 
+
+``` python
+memory.set_memory_range(
+            [AddrRange(start={ADDR}, size=memory.get_size())]
+        )
+```
 
 
 ## Board
