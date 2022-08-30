@@ -39,5 +39,21 @@ on the HiFive Unmatched:
     ./run_benchmarks.sh ../kernel/linux-5.19.4/tools/perf/perf 10 1000000000
     ```
 
+5. Run benchmarks on gem5. To run, the board configuration script path and
+benchmark binaries path must be passed as an argument to`scripts/gem5_bench.sh`.
+The script must be run from the gem5 source directory.
+    ```sh
+    cd <gem5_source>
+    <path_to_scripts_dir>/gem5_bench.sh <gem5_run_sctipt> <bench-bins-dir> <argv_for_binaries>
+    ```
+    Example:
+    ```sh
+    cd ~/gem5_darchr
+    ../riscv-validation/scripts/gem5_bench.sh configs/example/gem5_library/hifive-run.py ../riscv-validation/microbench-bins
+    ../riscv-validation/scripts/gem5_bench.sh configs/example/gem5_library/hifive-run.py ../riscv-validation/microbenchmarks-bins 100
+    ```
+    This will generate microbench-out/gem5_microbench.csv and
+    microbenchmarks-out/gem5_microbenchmarks.csv containing the stats.
+
 More detailed instructions for gathering data from both hardware and gem5
 can be found in [scripts/README.md](scripts/README.md).

@@ -24,7 +24,7 @@ run_sim () {
     echo $BENCH,$INSTRUCTIONS,$CYCLES,$SECONDS,$BRANCHES,$BRANCH_MISSES >> $OUTDIR/gem5_$SUITE.csv
 }
 
-SUITE=$(echo $2 | tr -d ./)
+SUITE=$(basename $2 | cut -d '-' -f1)
 OUTDIR=$SUITE-out
 mkdir $OUTDIR
 echo "Benchmark,instructions,cycles,seconds,branches,branch-misses" > $OUTDIR/gem5_$SUITE.csv
