@@ -15,27 +15,20 @@ Scripts/tests/configurations needed for configuring a real RISC-V board in gem5 
     scons build/RISCV/gem5.opt -j<threads>
     ```
 
-3. On a HiFive Unmatched board running Ubuntu, clone this repo and
-compile the benchmarks.
+3. Compile the benchmarks for RISCV.
     ```sh
-    git clone https://github.com/darchr/riscv-validation.git
-
-    cd riscv-validation/microbench
-    make RISCV -j4
-
-    cd ../microbenchmarks
-    make -j4
+    ./build_benchmarks.sh <C_compiler_name>
     ```
-    Alternatively, benchmarks can be built with a cross compiler by
-    passing in the name of the cross compiler binary to `make` variables
-    `CC_RISCV` for microbench and `CC` for microbenchmarks.
+    For example, if compiling on a RISCV host running Ubuntu 22.04.
     ```sh
-    cd riscv-validation/microbench
-    CC_RISCV=riscv64-linux-gnu-gcc make RISCV
-
-    cd ../microbenchmarks
-    CC=riscv64-linux-gnu-gcc make
+    ./build_benchmarks.sh gcc
     ```
+    If compiling on a non-RISCV host with a cross compiler installed.
+    ```sh
+    ./build_benchmarks.sh riscv64-linux-gnu-gcc
+    ```
+    This will put all microbench binaries in microbench-bins and all
+    microbenchmarks binaries in microbenchmarks-bins.
 
 Setup is now complete. Instructions for gathering data from hardware and gem5
 can be found in [scripts/README.md](scripts/README.md).
