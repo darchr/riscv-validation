@@ -12,18 +12,24 @@ CRm: There is a segmentation fault in the original VRG code.
 ML2, ML2\_st, MM, MM\_st, STL2b: increasing iterations was not possible due to
 the nature of the code.
 
-To build RISCV binaries for the Unmatched board,
+To build RISCV binaries for the Unmatched board running Ubuntu 22.04,
 ```shell
 make RISCV -j4
+```
+
+The binaries can also be built using a cross compiler on a non-RISCV host by
+passing in the name of the cross compiler binary to `make` variable CC\_RISCV,
+```shell
+CC_RISCV=riscv64-linux-gnu-gcc make RISCV
 ```
 
 To set the path to RISCV compiler, change `$CC_RISCV` in `make.config` file.  
 
 The binaries are named `bench.RISCV` on each subdirectory.
 
-To run all benchmarks under perf and generate a CSV with stats,
+To run all benchmarks under perf on a RISCV host and generate a CSV with stats,
 ```shell
-../stat-tracking/microbench.sh
+../scripts/microbench.sh
 ```
 
 From the original README file,

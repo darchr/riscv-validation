@@ -24,6 +24,13 @@ compile the benchmarks.
     cd ../microbenchmarks
     make -j4
     ```
+    Alternatively, microbench suite can be built with a cross compiler by
+    passing in the name of the cross compiler binary to `make` variable
+    CC\_RISCV.
+    ```sh
+    cd riscv-validation/microbench
+    CC_RISCV=riscv64-linux-gnu-gcc make RISCV
+    ```
 
 Setup is now complete. Instructions for gathering data from hardware and gem5
 can be found in [scripts/README.md](scripts/README.md).
