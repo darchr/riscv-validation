@@ -1,6 +1,6 @@
-CC = /usr/bin/gcc
+CC ?= /usr/bin/gcc
 CPP = /usr/bin/gcc++
-LD = /usr/bin/gcc
+LD = $(CC)
 CFLAGS = $(FLAGS)
 CPPFLAGS = $(FLAGS)
 RM = rm -f

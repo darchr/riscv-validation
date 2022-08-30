@@ -19,17 +19,22 @@ Scripts/tests/configurations needed for configuring a real RISC-V board in gem5 
 compile the benchmarks.
     ```sh
     git clone https://github.com/darchr/riscv-validation.git
+
     cd riscv-validation/microbench
     make RISCV -j4
+
     cd ../microbenchmarks
     make -j4
     ```
-    Alternatively, microbench suite can be built with a cross compiler by
-    passing in the name of the cross compiler binary to `make` variable
-    CC\_RISCV.
+    Alternatively, benchmarks can be built with a cross compiler by
+    passing in the name of the cross compiler binary to `make` variables
+    `CC_RISCV` for microbench and `CC` for microbenchmarks.
     ```sh
     cd riscv-validation/microbench
     CC_RISCV=riscv64-linux-gnu-gcc make RISCV
+
+    cd ../microbenchmarks
+    CC=riscv64-linux-gnu-gcc make
     ```
 
 Setup is now complete. Instructions for gathering data from hardware and gem5
