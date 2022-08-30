@@ -7,6 +7,7 @@
     # ignore files without extension
 
 #!/bin/sh
+cd $(dirname $0)/../microbenchmarks
 
 echo "Benchmark,instructions,cycles,seconds,branches,branch-misses" > ayaz_perf_microbenchmarks.csv
 

@@ -2,7 +2,7 @@
 # and seconds in a formatted csv file
 
 #!/bin/sh
-
+cd $(dirname $0)/../microbench
 echo "Benchmark,instructions,cycles,seconds,branches,branch-misses" > perf_microbench.csv
 
 for dir in */ ; do
