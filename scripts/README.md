@@ -14,7 +14,7 @@ per benchmark (-r flag for perf).
 Perf will automatically report the average for the statistics.
 ```sh
 cd ../microbench
-../stat-tracking/microbench.sh <perf_binary_path> <perf_iterations>
+../scripts/microbench.sh <perf_binary_path> <perf_iterations>
 ```
 This will generate microbench.csv containing the stats.
 
@@ -27,18 +27,18 @@ Make sure that the benchmarks have been [compiled](../microbench/README.md).
     ./gather_binaries.sh
     cd ../stat-tracking
     ```
-    This will put all benchmark binaries in `../bins`
+    This will put all benchmark binaries in `../microbench-bins`
 
 2. Copy `gem5_bench.sh` into the root directory of the gem5 source.
     ```sh
     cp gem5_bench.sh <path_to_gem5_source>
     ```
 
-3. Move the binaries into the gem5 source. This may require moving the binaries
-across from the HiFive Unmatched to the machine running gem5, if the Unmatched
-is the host for compilation.
+3. Move the binaries into the gem5 source. If the binaries were compiled on
+hardware, this will require moving the binaries across from the HiFive Unmatched
+to the machine running gem5, if the Unmatched is the host for compilation.
     ```sh
-    mv ../bins <path_to_gem5_source>/microbench
+    mv ../microbench-bins <path_to_gem5_source>/microbench
     ```
 
 4. Change the current working directory to the gem5 directory.
@@ -76,7 +76,7 @@ Make sure that the benchmarks have been compiled in `../microbenchmarks`.
     ./gather_binaries.sh
     cd ../stat-tracking
     ```
-    This will put all benchmark binaries in `../bins`
+    This will put all benchmark binaries in `../microbenchmarks-bins`
 
 2. Copy `gem5_bench.sh` into the root directory of the gem5 source.
     ```sh
@@ -87,7 +87,7 @@ Make sure that the benchmarks have been compiled in `../microbenchmarks`.
 across from the HiFive Unmatched to the machine running gem5, if the Unmatched
 is the host for compilation.
     ```sh
-    mv ../bins <path_to_gem5_source>/microbenchmarks
+    mv ../microbenchmarks-bins <path_to_gem5_source>/microbenchmarks
     ```
 
 4. Change the current working directory to the gem5 directory.
