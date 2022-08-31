@@ -1,4 +1,5 @@
 # USAGE: ./perf_spec.sh <perf_binary> <spec_input_size>
+    # <spec_input_size> can be "test", "train", and "ref"
 # depends on gnu-parallel: sudo apt install parallel
 # spec must be compiled and initialized with `source shrc`
 # Runs benchmarks listed on http://resources.gem5.org/resources/spec-2006 except
