@@ -159,6 +159,8 @@ release.
 Sources: 
 [1]: https://www.kernel.org 
 [2]: https://www.linux.com/topic/desktop/how-compile-linux-kernel-0/
+[3]: https://arxiv.org/abs/2112.11767
+[4]: https://patchwork.kernel.org/project/linux-riscv/cover/20211225054647.1750577-1-atishp@rivosinc.com/
 [3]: https://github.com/carlosedp/riscv-bringup/tree/master/unmatched/patches
 [4]: https://patchwork.kernel.org/project/linux-riscv/patch/20220727043829.151794-1-apatel@ventanamicro.com/
 [5]: https://patchwork.kernel.org/project/linux-riscv/cover/20220815132251.25702-1-nikita.shubin@maquefel.me/
