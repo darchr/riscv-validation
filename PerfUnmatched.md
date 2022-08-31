@@ -1,5 +1,10 @@
-# How to setup 'perf' on the HiFive Unmatched for Additional Events
-
+# How to Setup Additional 'perf' Events on the HiFive Unmatched
+By default, the perf tool in linux only supports instruction and cycle count
+hardware events on the HiFive Unmatched RISCV board. Hardware support for other
+microarchitectural events is available on the board and patches to Linux and
+OpenSBI help perf track these events. This tutorial will go over how to apply
+these patches to setup branches and branch-misses tracking in perf on the
+Unmatched.
 ## Installing Ubuntu
 
 ```
