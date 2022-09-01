@@ -12,7 +12,7 @@ OUTDIR=perf-spec-out
 mkdir -p $OUTDIR
 echo "Benchmark,Instructions,Cycles,Seconds,Branches,Branch-misses" > $OUTDIR/perf_spec2006.csv
 
-parallel -j4 $1 stat -e instructions,cycles,branches,branch-misses -o $OUTDIR/{}.out runspec --size $2 --iterations 1 --noreportable --config riscv.cfg --nobuild {} ::: {bzip2,gcc,bwaves,mcf,milc,zeusmp,gromacs,cactusADM,leslie3d,namd,gobmk,povray,calculix,hmmer,sjeng,GemsFDTD,libquantum,h264ref,tonto,lbm,omnetpp,astar,sphinx3,998.specrand,999.specrand}
+parallel -j1 $1 stat -e instructions,cycles,branches,branch-misses -o $OUTDIR/{}.out runspec --size $2 --iterations 1 --noreportable --config riscv.cfg --nobuild {} ::: {bzip2,gcc,bwaves,mcf,milc,zeusmp,gromacs,cactusADM,leslie3d,namd,gobmk,povray,calculix,hmmer,sjeng,GemsFDTD,libquantum,h264ref,tonto,lbm,omnetpp,astar,sphinx3,998.specrand,999.specrand}
 
 for bench in $OUTDIR/*.out ; do
     INSTRUCTIONS=$(grep -o -E '[0-9]+\s+instructions' $bench | grep -o -E '[0-9]+')
