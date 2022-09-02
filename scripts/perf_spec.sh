@@ -10,7 +10,7 @@
 
 OUTDIR=perf-spec-$2-out
 mkdir -p $OUTDIR
-echo "Benchmark,Instructions,Cycles,Seconds,Branches,Branch-misses" > $OUTDIR/perf_spec2006.csv
+echo "Benchmark,Instructions,Cycles,Seconds,Branches,Branch-misses" > $OUTDIR/perf_spec2006_$2.csv
 
 BENCHES="bzip2 gcc bwaves mcf milc zeusmp gromacs cactusADM leslie3d namd gobmk povray calculix hmmer sjeng GemsFDTD libquantum h264ref tonto lbm omnetpp astar sphinx3 998.specrand 999.specrand"
 
