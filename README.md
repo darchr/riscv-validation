@@ -28,16 +28,17 @@ Scripts/tests/configurations needed for configuring a real RISC-V board in gem5 
     ./build_benchmarks.sh riscv64-linux-gnu-gcc
     ```
     This will put all microbench binaries in microbench-bins and all
-    microbenchmarks binaries in microbenchmarks-bins.
+    microbenchmark-suite binaries in microbenchmark_suite-bins.
 
 4. Run all benchmarks on hardware. Pass the perf binary path, number of perf
 iterations on microbench (-r flag for perf), and the command line argument for
-microbenchmarks as positional arguments 1, 2, and 3 respectively. For example,
-if you are using the patched kernel that allows for additional perf events
-on the HiFive Unmatched:
+microbenchmark-suite binaries as positional arguments 1, 2, and 3 respectively.
+For example, if you are using the patched kernel that allows for additional perf
+events on the HiFive Unmatched:
     ```sh
     ./run_benchmarks.sh ../kernel/linux-5.19.4/tools/perf/perf 10 1000000000
     ```
+    This will output perf CSV files into plots/.
 
 5. Run benchmarks on gem5. To run, the board configuration script path and
 benchmark binaries path must be passed as an argument to`scripts/gem5_bench.sh`.
@@ -50,10 +51,10 @@ The script must be run from the gem5 source directory.
     ```sh
     cd ~/gem5_darchr
     ../riscv-validation/scripts/gem5_bench.sh configs/example/gem5_library/hifive-run.py ../riscv-validation/microbench-bins
-    ../riscv-validation/scripts/gem5_bench.sh configs/example/gem5_library/hifive-run.py ../riscv-validation/microbenchmarks-bins 100
+    ../riscv-validation/scripts/gem5_bench.sh configs/example/gem5_library/hifive-run.py ../riscv-validation/microbenchmark_suite-bins 100
     ```
     This will generate microbench-out/gem5_microbench.csv and
-    microbenchmarks-out/gem5_microbenchmarks.csv containing the stats.
+    microbenchmark_suite-out/gem5_microbenchmark_suite.csv containing the stats.
 
 More detailed instructions for gathering data from both hardware and gem5
 can be found in [scripts/README.md](scripts/README.md).
