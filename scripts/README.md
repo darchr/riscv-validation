@@ -7,27 +7,29 @@ logging performance statistics on the HiFive Unmatched hardware and gem5 board.
 Scripts are provided for running the VRG microbenchmarks on gem5 and hardware.
 
 ### Hardware
-Make sure that the benchmarks have been [compiled](../microbench/README.md) in
-`../microbench`. Then run this script in the microbench directory and pass
-in the path to the perf binary and the number of iterations that perf should do
-per benchmark (-r flag for perf).
+Make sure that the benchmarks have been
+[compiled](../microbench-vertical/README.md) in
+`../microbench-vertical`. Then run this script in the microbench-vertical
+directory and pass in the path to the perf binary and the number of iterations
+that perf should do per benchmark (-r flag for perf).
 Perf will automatically report the average for the statistics.
 ```sh
 cd ../microbench
-../scripts/microbench.sh <perf_binary_path> <perf_iterations>
+../scripts/microbench-vertical.sh <perf_binary_path> <perf_iterations>
 ```
-This will generate microbench.csv containing the stats.
+This will generate perf\_microbench\_vertical.csv containing the stats.
 
 ### GEM5
-Make sure that the benchmarks have been [compiled](../microbench/README.md).
+Make sure that the benchmarks have been
+[compiled](../microbench-vertical/README.md).
 
 1. Collect the benchmark binaries into one directory.
     ```sh
-    cd ../microbench
+    cd ../microbench-vertical
     ./gather_binaries.sh
-    cd ../stat-tracking
+    cd ../scripts
     ```
-    This will put all benchmark binaries in `../microbench-bins`
+    This will put all benchmark binaries in `../microbench_vertical-bins`
 
 2. Copy `gem5_bench.sh` into the root directory of the gem5 source.
     ```sh
@@ -38,7 +40,7 @@ Make sure that the benchmarks have been [compiled](../microbench/README.md).
 hardware, this will require moving the binaries across from the HiFive Unmatched
 to the machine running gem5, if the Unmatched is the host for compilation.
     ```sh
-    mv ../microbench-bins <path_to_gem5_source>/microbench
+    mv ../microbench_vertical-bins <path_to_gem5_source>/microbench
     ```
 
 4. Change the current working directory to the gem5 directory.
@@ -49,9 +51,10 @@ to the machine running gem5, if the Unmatched is the host for compilation.
 5. To run, the board configuration script path and benchmark binaries path
 must be passed as an argument to `gem5_bench.sh`. For example,
     ```sh
-    ./gem5_bench.sh src/python/gem5/prebuilt/hifiveunmatched/hifive-run.py ./microbench/
+    ./gem5_bench.sh src/python/gem5/prebuilt/hifiveunmatched/hifive-run.py ./microbench_vertical-bins/
     ```
-    This will generate microbench-out/gem5_microbench.csv containing the stats.
+    This will generate microbench_vertical-out/gem5_microbench.csv containing
+    the stats.
 
 ## Microbenchmark-suite
 A Script is provided for running the [aakahlow/microbenchmarks](https://github.com/aakahlow/microbenchmarks) on hardware.

@@ -7,7 +7,7 @@
 # the stats will be outputed in <benchmark_suite_name>-out/
 # USAGE: ./gem5_bench.sh <path_to_gem5_config_script> <path_to_RISCV_binaries_dir> <argv[1]>
 # example:
-    # ./gem5_microbench.sh ./src/python/gem5/prebuilt/hifivenew/HiFiveRun.py microbenchmarks 10
+    # ./gem5_bench.sh ./src/python/gem5/prebuilt/hifivenew/HiFiveRun.py microbenchmarks 10
 
 #!/bin/sh
 run_sim () {

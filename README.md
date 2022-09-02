@@ -27,14 +27,14 @@ Scripts/tests/configurations needed for configuring a real RISC-V board in gem5 
     ```sh
     ./build_benchmarks.sh riscv64-linux-gnu-gcc
     ```
-    This will put all microbench binaries in microbench-bins and all
-    microbenchmark-suite binaries in microbenchmark_suite-bins.
+    This will put all microbench-vertical binaries in microbench_vertical-bins
+    and all microbenchmark-suite binaries in microbenchmark_suite-bins.
 
 4. Run all benchmarks on hardware. Pass the perf binary path, number of perf
-iterations on microbench (-r flag for perf), and the command line argument for
-microbenchmark-suite binaries as positional arguments 1, 2, and 3 respectively.
-For example, if you are using the patched kernel that allows for additional perf
-events on the HiFive Unmatched:
+iterations on microbench-vertical (-r flag for perf), and the command line
+argument for microbenchmark-suite binaries as positional arguments 1, 2, and 3
+respectively. For example, if you are using the patched kernel that allows for
+additional perf events on the HiFive Unmatched:
     ```sh
     ./run_benchmarks.sh ../kernel/linux-5.19.4/tools/perf/perf 10 1000000000
     ```
@@ -53,7 +53,7 @@ The script must be run from the gem5 source directory.
     ../riscv-validation/scripts/gem5_bench.sh configs/example/gem5_library/hifive-run.py ../riscv-validation/microbench-bins
     ../riscv-validation/scripts/gem5_bench.sh configs/example/gem5_library/hifive-run.py ../riscv-validation/microbenchmark_suite-bins 100
     ```
-    This will generate microbench-out/gem5_microbench.csv and
+    This will generate microbench_vertical-out/gem5_microbench.csv and
     microbenchmark_suite-out/gem5_microbenchmark_suite.csv containing the stats.
 
 More detailed instructions for gathering data from both hardware and gem5
