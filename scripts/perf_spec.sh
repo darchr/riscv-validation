@@ -26,5 +26,5 @@ for bench in $OUTDIR/*.out ; do
     TIMESEC=$(grep -o -E '[0-9]+.[0-9]+\s?\+?\-?\s?[0-9]+?.?[0-9]+?\s+seconds time elapsed' $bench | grep -o -E '[0-9]+.[0-9]+' | head -n1)
     BRANCHES=$(grep -o -E '[0-9]+\s+branches' $bench | grep -o -E '[0-9]+')
     BRANCH_MISSES=$(grep -o -E '[0-9]+\s+branch-misses' $bench | grep -o -E '[0-9]+')
-    echo $(basename --suffix=.out $bench),$INSTRUCTIONS,$CYCLES,$TIMESEC,$BRANCHES,$BRANCH_MISSES >> $OUTDIR/perf_spec2006.csv
+    echo $(basename --suffix=.out $bench),$INSTRUCTIONS,$CYCLES,$TIMESEC,$BRANCHES,$BRANCH_MISSES >> $OUTDIR/perf_spec2006_$2.csv
 done
