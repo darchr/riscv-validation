@@ -9,7 +9,7 @@
 #!/bin/sh
 cd $(dirname $0)/../microbenchmark-suite
 
-echo "Benchmark,instructions,cycles,seconds,branches,branch-misses" > perf_microbenchmark_suite.csv
+echo "Benchmark,Instructions,Cycles,Seconds,Branches,Branch-misses" > perf_microbenchmark_suite.csv
 
 for exe in $(ls | grep -o -E '^([^.]+)$') ; do
     if [ "$exe" = "LICENSE" ] || [ "$exe" = "Makefile" ]; then

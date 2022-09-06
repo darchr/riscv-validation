@@ -27,7 +27,7 @@ run_sim () {
 SUITE=$(basename $2 | cut -d '-' -f1)
 OUTDIR=$SUITE-out
 mkdir $OUTDIR
-echo "Benchmark,instructions,cycles,seconds,branches,branch-misses" > $OUTDIR/gem5_$SUITE.csv
+echo "Benchmark,Instructions,Cycles,Seconds,Branches,Branch-misses" > $OUTDIR/gem5_$SUITE.csv
 
 for bin in $2/* ; do
     run_sim $1 $bin $3 &

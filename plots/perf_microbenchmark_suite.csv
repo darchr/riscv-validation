@@ -1,4 +1,4 @@
-Benchmark,instructions,cycles,seconds,branches,branch-misses
+Benchmark,Instructions,Cycles,Seconds,Branches,Branch-misses
 control_complex,8762291644,7975036102,6.671124953,3000852635,792482
 control_conditional,5505845837,4510037691,3.782571685,2000409918,367147
 control_random,60050914453,49864429436,41.695663034,5003189302,3634157

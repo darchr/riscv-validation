@@ -1,4 +1,4 @@
-Benchmark,instructions,cycles,seconds,branches,branch-misses
+Benchmark,Instructions,Cycles,Seconds,Branches,Branch-misses
 control_small_bbl,2000007752,4000050487,3.332042,1000001227,616
 control_conditional,5500007581,5500049995,4.581542,2000001152,626
 control_complex,8750008912,10750052124,8.954793,3000001354,766
