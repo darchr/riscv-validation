@@ -6,9 +6,9 @@ flags have been removed, including the universal -O3 and local -O1 and -O2 in
 benchmarks DP1d, EF, DPcvt, MIP, DP1f. The code for the benchmarks has been
 modified to significantly increase the instruction counts. To do this, the
 iterations were increased until the IPC change stabliized. Some benchmarks
-were removed due to certain issues. The removed benchmarks are,
-CF1: The ROI is not clearly defined by Vertical Research Group.
-CRm: There is a segmentation fault in the original VRG code.
+were removed due to certain issues. The removed benchmarks are, \
+CF1: The ROI is not clearly defined by Vertical Research Group. \
+CRm: There is a segmentation fault in the original VRG code. \
 ML2, ML2\_st, MM, MM\_st, STL2b: increasing iterations was not possible due to
 the nature of the code.
 
