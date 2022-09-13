@@ -2,8 +2,8 @@
 # and seconds in a formatted csv file
 
 #!/bin/sh
-cd $(dirname $0)/../microbench
-echo "Benchmark,instructions,cycles,seconds,branches,branch-misses" > perf_microbench.csv
+cd $(dirname $0)/../microbench-vertical
+echo "Benchmark,instructions,cycles,seconds,branches,branch-misses" > perf_microbench_vertical.csv
 
 for dir in */ ; do
     echo "Running $dir"
@@ -19,5 +19,5 @@ for dir in */ ; do
 
     BRANCH_MISSES=$(echo $PERF_DATA | grep -o -E '[0-9]+ branch-misses' | grep -o -E '[0-9]+')
 
-    echo $dir,$INSTRUCTIONS,$CYCLES,$SECONDS,$BRANCHES,$BRANCH_MISSES | tr -d '/' >> perf_microbench.csv
+    echo $dir,$INSTRUCTIONS,$CYCLES,$SECONDS,$BRANCHES,$BRANCH_MISSES | tr -d '/' >> perf_microbench_vertical.csv
 done

@@ -7,7 +7,7 @@
 # the stats will be outputed in <benchmark_suite_name>-out/
 # USAGE: ./gem5_bench.sh <parallel_threads> <path_to_gem5_config_script> <path_to_RISCV_binaries_dir> <argv[1]>
 # example:
-    # ./gem5_bench.sh 1 ./src/python/gem5/prebuilt/hifivenew/HiFiveRun.py microbenchmarks 10
+# ./gem5_bench.sh 1 ./src/python/gem5/prebuilt/hifivenew/HiFiveRun.py microbenchmarks 10
 
 #!/bin/sh
 
@@ -26,7 +26,7 @@ SUITE=$(basename $3 | cut -d '-' -f1)
 OUTDIR=$SUITE-out
 rm -rf $OUTDIR
 mkdir $OUTDIR
-echo "Benchmark,instructions,cycles,seconds,branches,branch-misses" > $OUTDIR/gem5_$SUITE.csv
+echo "Benchmark,Instructions,Cycles,Seconds,Branches,Branch-misses" > $OUTDIR/gem5_$SUITE.csv
 
 parallel -j$1 ./build/RISCV/gem5.opt --outdir=$OUTDIR/$(basename {} .RISCV) $2 {} --argv=$4 ::: $3/*
 
