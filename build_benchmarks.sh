@@ -5,6 +5,6 @@
 #!/bin/sh
 
 CC_RISCV=$1 make -C microbench-vertical RISCV -j4
-CC=$1 make -C microbenchmark-suite
+CC=$1 make -C microbenchmark-suite -j4
 ./microbench-vertical/gather_binaries.sh
 ./microbenchmark-suite/gather_binaries.sh

@@ -120,8 +120,7 @@ OBJ_OMP8 = openmp_sharing_pairs.o
 
 all:	$(EXEC_C1) $(EXEC_C2) $(EXEC_C3) $(EXEC_C4) $(EXEC_C5)\
 		$(EXEC_D1) $(EXEC_D2) $(EXEC_D3) $(EXEC_D4) $(EXEC_D5) $(EXEC_D6)\
-		$(EXEC_EI1) $(EXEC_EI2) $(EXEC_EI3) \
-		$(EXEC_EF1) $(EXEC_EF2) $(EXEC_EF3) \
+		$(EXEC_EI1) $(EXEC_EI2) \
 		$(EXEC_M1) $(EXEC_M2) $(EXEC_M3) $(EXEC_M4) $(EXEC_M5) \
 		$(EXEC_OMP1) $(EXEC_OMP2) $(EXEC_OMP3) $(EXEC_OMP4) $(EXEC_OMP5) $(EXEC_OMP6) $(EXEC_OMP7) $(EXEC_OMP8)
 
@@ -236,8 +235,7 @@ clean:
 			$(OBJ_OMP1) $(OBJ_OMP2) $(OBJ_OMP3) $(OBJ_OMP4) $(OBJ_OMP5) $(OBJ_OMP6) $(OBJ_OMP7) $(OBJ_OMP8)
 	-$(RM) $(EXEC_C1) $(EXEC_C2) $(EXEC_C3) $(EXEC_C4) $(EXEC_C5) \
 			$(EXEC_D1) $(EXEC_D2) $(EXEC_D3) $(EXEC_D4) $(EXEC_D5) $(EXEC_D6) \
-			$(EXEC_EI1) $(EXEC_EI2) $(EXEC_EI3) \
-			$(EXEC_EF1) $(EXEC_EF2) $(EXEC_EF3) \
+			$(EXEC_EI1) $(EXEC_EI2) \
 			$(EXEC_M1) $(EXEC_M2) $(EXEC_M3) $(EXEC_M4) $(EXEC_M5) \
 			$(EXEC_OMP1) $(EXEC_OMP2) $(EXEC_OMP3) $(EXEC_OMP4) $(EXEC_OMP5) $(EXEC_OMP6) $(EXEC_OMP7) $(EXEC_OMP8)
 	@echo All clean!
