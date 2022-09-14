@@ -60,15 +60,17 @@ must be passed as an argument to `gem5_bench.sh`. For example,
 A Script is provided for running the [aakahlow/microbenchmarks](https://github.com/aakahlow/microbenchmarks) on hardware.
 
 ### Hardware
-Make sure that the benchmarks have been compiled in `../microbenchmark-suite`.
-There will be errors compiling some. Ignore them. Then run the script in 
-the microbenchmarks directory.
+Make sure that the benchmarks have been compiled in `../microbenchmark-suite`
+and have been gathered into `../microbenchmark_suite-bins/` using
+`../microbenchmark-suite/gather_binaries.sh`. Then run the script.
 ```sh
 cd ../microbenchmark-suite
-make
-../stat-tracking/microbenchmark-suite.sh <perf_binary_path> <benchmark_argv[1]>
+make -j4
+./gather_binaries.sh
+../scripts/microbenchmark-suite.sh <perf_binary_path> <benchmark_argv[1]>
 ```
-This will generate perf\_microbenchmark\_suite.csv containing the stats.
+This will generate perf\_microbenchmark\_suite.csv in the root directory
+containing the stats.
 
 ### GEM5
 Make sure that the benchmarks have been compiled in `../microbenchmark-suite`.

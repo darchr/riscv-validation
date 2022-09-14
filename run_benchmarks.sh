@@ -8,4 +8,4 @@
 mv -f microbench-vertical/perf_microbench_vertical.csv ./plots
 
 ./scripts/microbenchmark-suite.sh $1 $3
-mv -f microbenchmark-suite/perf_microbenchmark_suite.csv ./plots
+mv -f perf_microbenchmark_suite.csv ./plots

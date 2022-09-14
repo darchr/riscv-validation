@@ -1,22 +1,17 @@
-# This script will run all microbenchmark-suite binaries, and store instructions
-# and cycles in a formatted csv file
+# This script will run all non-memory microbenchmark-suite binaries, and store
+# instruction counts and cycle counts in a formatted csv file
 
-# provide the number of repetitions per benchmarks as argument $1
-
-# regex for the loop: https://stackoverflow.com/questions/36743957/how-to-loop-through-files-that-match-a-regular-expression-in-a-unix-shell-script
-    # ignore files without extension
+# provide the path to the perf binary as argument $1
+# provide the number of repetitions per benchmarks as argument $2
 
 #!/bin/sh
-cd $(dirname $0)/../microbenchmark-suite
+
+cd $(dirname $0)/..
 
 echo "Benchmark,Instructions,Cycles,Seconds,Branches,Branch-misses" > perf_microbenchmark_suite.csv
 
-for exe in $(ls | grep -o -E '^([^.]+)$') ; do
-    if [ "$exe" = "LICENSE" ] || [ "$exe" = "Makefile" ]; then
-        continue
-    fi
-
-    echo Running $exe
+for exe in microbenchmark_suite-bins/* ; do
+    echo Running $(basename $exe)
     PERF_DATA=$($1 stat -r 1 -e cycles,instructions,branches,branch-misses -o /dev/stdout ./$exe $2)
 
     INSTRUCTIONS=$(echo $PERF_DATA | grep -o -E '[0-9]+ instructions' | grep -o -E '[0-9]+' | tr -d '\n')
