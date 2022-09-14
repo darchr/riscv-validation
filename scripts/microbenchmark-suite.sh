@@ -11,7 +11,7 @@ cd $(dirname $0)/..
 echo "Benchmark,Instructions,Cycles,Seconds,Branches,Branch-misses" > perf_microbenchmark_suite.csv
 
 for exe in microbenchmark_suite-bins/* ; do
-    echo Running $(basename $exe)
+    echo Running $(basename -s .RISCV $exe)
     PERF_DATA=$($1 stat -r 1 -e cycles,instructions,branches,branch-misses -o /dev/stdout ./$exe $2)
 
     INSTRUCTIONS=$(echo $PERF_DATA | grep -o -E '[0-9]+ instructions' | grep -o -E '[0-9]+' | tr -d '\n')
@@ -20,5 +20,5 @@ for exe in microbenchmark_suite-bins/* ; do
     BRANCHES=$(echo $PERF_DATA | grep -o -E '[0-9]+ branches' | grep -o -E '[0-9]+')
     BRANCH_MISSES=$(echo $PERF_DATA | grep -o -E '[0-9]+ branch-misses' | grep -o -E '[0-9]+')
 
-    echo $exe,$INSTRUCTIONS,$CYCLES,$SEC,$BRANCHES,$BRANCH_MISSES >> perf_microbenchmark_suite.csv
+    echo $(basename -s .RISCV $exe),$INSTRUCTIONS,$CYCLES,$SEC,$BRANCHES,$BRANCH_MISSES >> perf_microbenchmark_suite.csv
 done
