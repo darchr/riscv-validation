@@ -28,17 +28,22 @@ Scripts/tests/configurations needed for configuring a real RISC-V board in gem5 
     ./build_benchmarks.sh riscv64-linux-gnu-gcc
     ```
     This will put all microbench-vertical binaries in microbench_vertical-bins
-    and all microbenchmark-suite binaries in microbenchmark_suite-bins.
+    all microbenchmark-suite memory binaries in microbenchmark_suite_mem-bins,
+    and all microbenchmark-suite non-memory binaries in
+    microbenchmark_suite-bins.
 
-4. Run all benchmarks on hardware. Pass the perf binary path, number of perf
-iterations on microbench-vertical (-r flag for perf), and the command line
-argument for microbenchmark-suite binaries as positional arguments 1, 2, and 3
-respectively. For example, if you are using the patched kernel that allows for
-additional perf events on the HiFive Unmatched:
+4. Run all benchmarks on hardware. Pass the perf binary path as positional
+argument 1, the number of perf iterations on microbench-vertical as positional
+argument 2 (-r flag for perf), the number of repetitions for
+microbenchmark-suite non-memory binaries as positional argument 3 (repetitions),
+the number of repetitions for microbenchmark-suite memory benchmarks as
+positional argument 4, and the microbenchmark-suite memory benchmarks array
+size as positional argument 5. For example, if you are using the patched kernel
+that allows for additional perf events on the HiFive Unmatched:
     ```sh
-    ./run_benchmarks.sh ../kernel/linux-5.19.4/tools/perf/perf 10 1000000000
+    ./run_benchmarks.sh ../kernel/linux-5.19.4/tools/perf/perf 10 1000000000 4194304 512
     ```
-    This will output perf CSV files into plots/.
+    This will place the outputted perf CSV files into plots/.
 
 5. Run benchmarks on gem5. To run, the board configuration script path and
 benchmark binaries path must be passed as an argument to`scripts/gem5_bench.sh`.
