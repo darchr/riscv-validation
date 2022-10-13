@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_ref_riscv.0000/milc_base.riscv':
+
+        5465865.35 msec task-clock                #    0.796 CPUs utilized          
+            140884      context-switches          #   25.775 /sec                   
+             14502      cpu-migrations            #    2.653 /sec                   
+           9866980      page-faults               #    1.805 K/sec                  
+     6536820177094      cycles                    #    1.196 GHz                    
+      995073884110      instructions              #    0.15  insn per cycle         
+       55505497908      branches                  #   10.155 M/sec                  
+        3282944713      branch-misses             #    5.91% of all branches        
+
+    6864.301079334 seconds time elapsed
+
+    5291.893396000 seconds user
+     178.785502000 seconds sys
+
+

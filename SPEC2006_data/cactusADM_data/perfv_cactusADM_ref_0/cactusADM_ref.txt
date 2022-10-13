@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_ref_riscv.0000/cactusADM_base.riscv benchADM.par':
+
+        9319993.03 msec task-clock                #    0.993 CPUs utilized          
+             17033      context-switches          #    1.828 /sec                   
+              1100      cpu-migrations            #    0.118 /sec                   
+            633090      page-faults               #   67.928 /sec                   
+    11146178162375      cycles                    #    1.196 GHz                    
+     3239343885630      instructions              #    0.29  insn per cycle         
+        6237966957      branches                  #  669.310 K/sec                  
+        1236481234      branch-misses             #   19.82% of all branches        
+
+    9388.376390835 seconds time elapsed
+
+    9308.416658000 seconds user
+      11.634680000 seconds sys
+
+

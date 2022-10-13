@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_test_riscv.0000/perlbench_base.riscv -I. -I./lib pack.pl':
+
+            477.32 msec task-clock                #    0.998 CPUs utilized          
+                 1      context-switches          #    2.095 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+              1113      page-faults               #    2.332 K/sec                  
+         570841464      cycles                    #    1.196 GHz                    
+         292369174      instructions              #    0.51  insn per cycle         
+          37493227      branches                  #   78.549 M/sec                  
+           3070871      branch-misses             #    8.19% of all branches        
+
+       0.478263747 seconds time elapsed
+
+       0.442484000 seconds user
+       0.035877000 seconds sys
+
+

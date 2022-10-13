@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_train_riscv.0000/astar_base.riscv BigLakes1024.cfg':
+
+         345215.69 msec task-clock                #    0.994 CPUs utilized          
+              3026      context-switches          #    8.766 /sec                   
+                26      cpu-migrations            #    0.075 /sec                   
+             72635      page-faults               #  210.405 /sec                   
+      412849805025      cycles                    #    1.196 GHz                    
+      107076880076      instructions              #    0.26  insn per cycle         
+       16438646720      branches                  #   47.618 M/sec                  
+          65030840      branch-misses             #    0.40% of all branches        
+
+     347.443858611 seconds time elapsed
+
+     343.500568000 seconds user
+       1.662492000 seconds sys
+
+

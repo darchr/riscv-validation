@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_test_riscv.0000/calculix_base.riscv -i beampic':
+
+            190.26 msec task-clock                #    0.974 CPUs utilized          
+                18      context-switches          #   94.608 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+               740      page-faults               #    3.889 K/sec                  
+         227553391      cycles                    #    1.196 GHz                    
+         175054897      instructions              #    0.77  insn per cycle         
+          27254874      branches                  #  143.252 M/sec                  
+            583364      branch-misses             #    2.14% of all branches        
+
+       0.195370104 seconds time elapsed
+
+       0.167180000 seconds user
+       0.024465000 seconds sys
+
+

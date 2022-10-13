@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_train_riscv.0000/libquantum_base.riscv 143 25':
+
+          25133.07 msec task-clock                #    0.999 CPUs utilized          
+               222      context-switches          #    8.833 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+               996      page-faults               #   39.629 /sec                   
+       30056965899      cycles                    #    1.196 GHz                    
+       11911660481      instructions              #    0.40  insn per cycle         
+        2143459603      branches                  #   85.284 M/sec                  
+           3068307      branch-misses             #    0.14% of all branches        
+
+      25.149334428 seconds time elapsed
+
+      25.108504000 seconds user
+       0.023985000 seconds sys
+
+

@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_train_riscv.0000/leslie3d_base.riscv':
+
+        1783213.31 msec task-clock                #    0.999 CPUs utilized          
+              5242      context-switches          #    2.940 /sec                   
+                15      cpu-migrations            #    0.008 /sec                   
+              9317      page-faults               #    5.225 /sec                   
+     2132606745873      cycles                    #    1.196 GHz                    
+      269075642839      instructions              #    0.13  insn per cycle         
+       16321316447      branches                  #    9.153 M/sec                  
+         189835443      branch-misses             #    1.16% of all branches        
+
+    1785.533166797 seconds time elapsed
+
+    1782.916307000 seconds user
+       0.231925000 seconds sys
+
+

@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_train_riscv.0002/sjeng_base.riscv train.txt':
+
+         706686.26 msec task-clock                #    0.562 CPUs utilized          
+             47927      context-switches          #   67.819 /sec                   
+               837      cpu-migrations            #    1.184 /sec                   
+             44713      page-faults               #   63.271 /sec                   
+      845176671108      cycles                    #    1.196 GHz                    
+      614554732159      instructions              #    0.73  insn per cycle         
+       82183089771      branches                  #  116.294 M/sec                  
+        4132198676      branch-misses             #    5.03% of all branches        
+
+    1257.033105763 seconds time elapsed
+
+     707.623752000 seconds user
+       1.023247000 seconds sys
+
+

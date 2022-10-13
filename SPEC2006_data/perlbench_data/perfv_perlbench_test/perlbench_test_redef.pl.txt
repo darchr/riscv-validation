@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_test_riscv.0000/perlbench_base.riscv -I. -I./lib redef.pl':
+
+              6.88 msec task-clock                #    0.892 CPUs utilized          
+                 0      context-switches          #    0.000 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+               103      page-faults               #   14.967 K/sec                  
+           8227075      cycles                    #    1.195 GHz                    
+           3543797      instructions              #    0.43  insn per cycle         
+            459474      branches                  #   66.765 M/sec                  
+             69233      branch-misses             #   15.07% of all branches        
+
+       0.007711996 seconds time elapsed
+
+       0.005305000 seconds user
+       0.002652000 seconds sys
+
+

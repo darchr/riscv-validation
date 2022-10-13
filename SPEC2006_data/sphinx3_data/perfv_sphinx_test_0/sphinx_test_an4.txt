@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_test_riscv.0000/sphinx_livepretend_base.riscv ctlfile . args.an4':
+
+          19603.99 msec task-clock                #    0.993 CPUs utilized          
+               226      context-switches          #   11.528 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+             11039      page-faults               #  563.100 /sec                   
+       23444360541      cycles                    #    1.196 GHz                    
+        7251292882      instructions              #    0.31  insn per cycle         
+         849512596      branches                  #   43.334 M/sec                  
+           9555018      branch-misses             #    1.12% of all branches        
+
+      19.749443359 seconds time elapsed
+
+      19.208209000 seconds user
+       0.391270000 seconds sys
+
+

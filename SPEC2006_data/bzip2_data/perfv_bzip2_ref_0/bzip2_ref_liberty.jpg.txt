@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_ref_riscv.0000/bzip2_base.riscv liberty.jpg 30':
+
+         796845.56 msec task-clock                #    1.000 CPUs utilized          
+               552      context-switches          #    0.693 /sec                   
+                 2      cpu-migrations            #    0.003 /sec                   
+             28139      page-faults               #   35.313 /sec                   
+      952982116507      cycles                    #    1.196 GHz                    
+      356002593817      instructions              #    0.37  insn per cycle         
+       49337737866      branches                  #   61.916 M/sec                  
+          91136068      branch-misses             #    0.18% of all branches        
+
+     796.895307671 seconds time elapsed
+
+     796.240821000 seconds user
+       0.595967000 seconds sys
+
+

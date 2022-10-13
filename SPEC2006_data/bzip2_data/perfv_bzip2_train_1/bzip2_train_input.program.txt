@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_train_riscv.0001/bzip2_base.riscv input.program 280':
+
+         942591.19 msec task-clock                #    1.000 CPUs utilized          
+              1429      context-switches          #    1.516 /sec                   
+                 1      cpu-migrations            #    0.001 /sec                   
+            222666      page-faults               #  236.228 /sec                   
+     1127281224060      cycles                    #    1.196 GHz                    
+      662633487215      instructions              #    0.59  insn per cycle         
+       78018050899      branches                  #   82.770 M/sec                  
+         147433406      branch-misses             #    0.19% of all branches        
+
+     942.710898483 seconds time elapsed
+
+     938.583983000 seconds user
+       3.991642000 seconds sys
+
+

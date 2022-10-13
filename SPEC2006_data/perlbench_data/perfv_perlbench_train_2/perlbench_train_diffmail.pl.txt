@@ -1,0 +1,54 @@
+
+ Performance counter stats for '../run_base_train_riscv.0002/perlbench_base.riscv -I. -I./lib diffmail.pl':
+
+            852.62 msec task-clock                #    0.992 CPUs utilized          
+                49      context-switches          #   57.470 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+              5948      page-faults               #    6.976 K/sec                  
+        1019713396      cycles                    #    1.196 GHz                    
+         514435390      instructions              #    0.50  insn per cycle         
+         100092289      branches                  #  117.393 M/sec                  
+           5292612      branch-misses             #    5.29% of all branches        
+
+       0.859902314 seconds time elapsed
+
+       0.694717000 seconds user
+       0.159705000 seconds sys
+
+
+
+ Performance counter stats for '../run_base_train_riscv.0002/perlbench_base.riscv -I. -I./lib diffmail.pl':
+
+            827.87 msec task-clock                #    0.999 CPUs utilized          
+                 5      context-switches          #    6.040 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+              5938      page-faults               #    7.173 K/sec                  
+         990058594      cycles                    #    1.196 GHz                    
+         503317559      instructions              #    0.51  insn per cycle         
+          99017911      branches                  #  119.606 M/sec                  
+           4911323      branch-misses             #    4.96% of all branches        
+
+       0.829095789 seconds time elapsed
+
+       0.676692000 seconds user
+       0.152155000 seconds sys
+
+
+
+ Performance counter stats for '../run_base_train_riscv.0002/perlbench_base.riscv -I. -I./lib diffmail.pl':
+
+            843.51 msec task-clock                #    0.999 CPUs utilized          
+                 5      context-switches          #    5.928 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+              5937      page-faults               #    7.038 K/sec                  
+        1008765638      cycles                    #    1.196 GHz                    
+         503412102      instructions              #    0.50  insn per cycle         
+          99025349      branches                  #  117.397 M/sec                  
+           4880535      branch-misses             #    4.93% of all branches        
+
+       0.844687939 seconds time elapsed
+
+       0.729033000 seconds user
+       0.115529000 seconds sys
+
+

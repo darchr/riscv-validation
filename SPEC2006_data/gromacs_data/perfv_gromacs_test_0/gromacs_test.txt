@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_test_riscv.0000/gromacs_base.riscv -silent -deffnm gromacs -nice 0':
+
+           7934.38 msec task-clock                #    0.999 CPUs utilized          
+                24      context-switches          #    3.025 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+              3759      page-faults               #  473.761 /sec                   
+        9489034870      cycles                    #    1.196 GHz                    
+        3581742103      instructions              #    0.38  insn per cycle         
+         207708033      branches                  #   26.178 M/sec                  
+           6699556      branch-misses             #    3.23% of all branches        
+
+       7.938526318 seconds time elapsed
+
+       7.847258000 seconds user
+       0.087991000 seconds sys
+
+

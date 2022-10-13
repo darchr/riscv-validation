@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_ref_riscv.0000/astar_base.riscv rivers.cfg':
+
+        1589123.45 msec task-clock                #    1.000 CPUs utilized          
+               481      context-switches          #    0.303 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+             41046      page-faults               #   25.829 /sec                   
+     1900503781827      cycles                    #    1.196 GHz                    
+      741614238743      instructions              #    0.39  insn per cycle         
+      110969915519      branches                  #   69.831 M/sec                  
+         217694034      branch-misses             #    0.20% of all branches        
+
+    1589.152858969 seconds time elapsed
+
+    1588.335139000 seconds user
+       0.783981000 seconds sys
+
+

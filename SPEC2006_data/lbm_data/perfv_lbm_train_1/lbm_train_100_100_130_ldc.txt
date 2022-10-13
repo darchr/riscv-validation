@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_train_riscv.0000/lbm_base.riscv 300 reference.dat 0 1 100_100_130_ldc.of':
+
+              1.21 msec task-clock                #    0.545 CPUs utilized          
+                 0      context-switches          #    0.000 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+                25      page-faults               #   20.644 K/sec                  
+           1446261      cycles                    #    1.194 GHz                    
+            359570      instructions              #    0.25  insn per cycle         
+             39615      branches                  #   32.713 M/sec                  
+             18649      branch-misses             #   47.08% of all branches        
+
+       0.002220003 seconds time elapsed
+
+       0.000000000 seconds user
+       0.002480000 seconds sys
+
+

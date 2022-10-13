@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_ref_riscv.0000/perlbench_base.riscv -I. -I./lib diffmail.pl':
+
+            803.11 msec task-clock                #    0.999 CPUs utilized          
+                 1      context-switches          #    1.245 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+              5937      page-faults               #    7.393 K/sec                  
+         960456988      cycles                    #    1.196 GHz                    
+         503018886      instructions              #    0.52  insn per cycle         
+          98998784      branches                  #  123.270 M/sec                  
+           4790693      branch-misses             #    4.84% of all branches        
+
+       0.804110946 seconds time elapsed
+
+       0.641005000 seconds user
+       0.163237000 seconds sys
+
+

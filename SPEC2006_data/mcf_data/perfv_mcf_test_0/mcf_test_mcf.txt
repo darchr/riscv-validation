@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_test_riscv.0000/mcf_base.riscv inp.in':
+
+          52924.30 msec task-clock                #    0.673 CPUs utilized          
+              2374      context-switches          #   44.857 /sec                   
+               147      cpu-migrations            #    2.778 /sec                   
+             39743      page-faults               #  750.940 /sec                   
+       63293245343      cycles                    #    1.196 GHz                    
+        3551148879      instructions              #    0.06  insn per cycle         
+         793904631      branches                  #   15.001 M/sec                  
+          15313683      branch-misses             #    1.93% of all branches        
+
+      78.645977414 seconds time elapsed
+
+      52.073520000 seconds user
+       0.939522000 seconds sys
+
+

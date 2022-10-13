@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_test_riscv.0000/omnetpp_base.riscv omnetpp.ini':
+
+           2883.85 msec task-clock                #    0.998 CPUs utilized          
+                30      context-switches          #   10.403 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+              1892      page-faults               #  656.068 /sec                   
+        3448891447      cycles                    #    1.196 GHz                    
+        1780718674      instructions              #    0.52  insn per cycle         
+         235026800      branches                  #   81.498 M/sec                  
+          85939776      branch-misses             #   36.57% of all branches        
+
+       2.889543332 seconds time elapsed
+
+       2.821089000 seconds user
+       0.064024000 seconds sys
+
+

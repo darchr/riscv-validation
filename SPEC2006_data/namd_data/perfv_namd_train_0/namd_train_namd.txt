@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_train_riscv.0000/namd_base.riscv --input namd.input --iterations 1 --output namd.out':
+
+          87550.25 msec task-clock                #    0.999 CPUs utilized          
+              1134      context-switches          #   12.953 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+             11547      page-faults               #  131.890 /sec                   
+      104702302327      cycles                    #    1.196 GHz                    
+       48164799915      instructions              #    0.46  insn per cycle         
+        3039692279      branches                  #   34.719 M/sec                  
+          14602400      branch-misses             #    0.48% of all branches        
+
+      87.676313127 seconds time elapsed
+
+      87.232323000 seconds user
+       0.303583000 seconds sys
+
+

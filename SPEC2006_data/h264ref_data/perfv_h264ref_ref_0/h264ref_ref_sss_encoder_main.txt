@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_ref_riscv.0000/h264ref_base.riscv -d sss_encoder_main.cfg':
+
+        5210053.22 msec task-clock                #    0.768 CPUs utilized          
+            150479      context-switches          #   28.882 /sec                   
+              6640      cpu-migrations            #    1.274 /sec                   
+             23124      page-faults               #    4.438 /sec                   
+     6230883518704      cycles                    #    1.196 GHz                    
+     4671626321998      instructions              #    0.75  insn per cycle         
+      227618449423      branches                  #   43.688 M/sec                  
+       89164228967      branch-misses             #   39.17% of all branches        
+
+    6787.953306827 seconds time elapsed
+
+    5213.373847000 seconds user
+       2.015181000 seconds sys
+
+

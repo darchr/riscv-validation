@@ -1,0 +1,57 @@
+../run_base_train_riscv.0002/perlbench_base.riscv: Interrupt
+
+ Performance counter stats for '../run_base_train_riscv.0002/perlbench_base.riscv -I. -I./lib scrabbl.pl':
+
+           1602.10 msec task-clock                #    0.719 CPUs utilized          
+                10      context-switches          #    6.242 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+              9408      page-faults               #    5.872 K/sec                  
+        1915977405      cycles                    #    1.196 GHz                    
+         927343499      instructions              #    0.48  insn per cycle         
+         125574614      branches                  #   78.381 M/sec                  
+           9593314      branch-misses             #    7.64% of all branches        
+
+       2.228900643 seconds time elapsed
+
+       1.399206000 seconds user
+       0.203884000 seconds sys
+
+
+../run_base_train_riscv.0002/perlbench_base.riscv: Interrupt
+
+ Performance counter stats for '../run_base_train_riscv.0002/perlbench_base.riscv -I. -I./lib scrabbl.pl':
+
+           1535.64 msec task-clock                #    0.788 CPUs utilized          
+                 4      context-switches          #    2.605 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+              9408      page-faults               #    6.126 K/sec                  
+        1836518061      cycles                    #    1.196 GHz                    
+         925048943      instructions              #    0.50  insn per cycle         
+         125360084      branches                  #   81.634 M/sec                  
+           9342669      branch-misses             #    7.45% of all branches        
+
+       1.948638505 seconds time elapsed
+
+       1.336587000 seconds user
+       0.200087000 seconds sys
+
+
+../run_base_train_riscv.0002/perlbench_base.riscv: Interrupt
+
+ Performance counter stats for '../run_base_train_riscv.0002/perlbench_base.riscv -I. -I./lib scrabbl.pl':
+
+           1534.81 msec task-clock                #    0.990 CPUs utilized          
+                 5      context-switches          #    3.258 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+              9408      page-faults               #    6.130 K/sec                  
+        1835527364      cycles                    #    1.196 GHz                    
+         925090911      instructions              #    0.50  insn per cycle         
+         125366633      branches                  #   81.682 M/sec                  
+           9331974      branch-misses             #    7.44% of all branches        
+
+       1.550706887 seconds time elapsed
+
+       1.339348000 seconds user
+       0.196491000 seconds sys
+
+

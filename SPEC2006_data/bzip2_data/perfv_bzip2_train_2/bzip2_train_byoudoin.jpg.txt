@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_train_riscv.0002/bzip2_base.riscv byoudoin.jpg 280':
+
+        2467160.49 msec task-clock                #    0.999 CPUs utilized          
+              5909      context-switches          #    2.395 /sec                   
+                26      cpu-migrations            #    0.011 /sec                   
+            219913      page-faults               #   89.136 /sec                   
+     2950570949702      cycles                    #    1.196 GHz                    
+     1563461290558      instructions              #    0.53  insn per cycle         
+      201148803749      branches                  #   81.530 M/sec                  
+         322044380      branch-misses             #    0.16% of all branches        
+
+    2470.231480064 seconds time elapsed
+
+    2462.792680000 seconds user
+       4.290628000 seconds sys
+
+

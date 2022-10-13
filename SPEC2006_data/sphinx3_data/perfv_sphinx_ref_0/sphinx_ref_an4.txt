@@ -1,0 +1,19 @@
+FATAL_ERROR: "spec_main_live_pretend.c", line 152: Unable to read ./an391-mjwl-b.raw
+
+ Performance counter stats for '../run_base_ref_riscv.0000/sphinx_livepretend_base.riscv ctlfile . args.an4':
+
+           2825.86 msec task-clock                #    1.000 CPUs utilized          
+                 3      context-switches          #    1.062 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+             11032      page-faults               #    3.904 K/sec                  
+        3379547650      cycles                    #    1.196 GHz                    
+        2710967475      instructions              #    0.80  insn per cycle         
+         410148333      branches                  #  145.141 M/sec                  
+           5840389      branch-misses             #    1.42% of all branches        
+
+       2.827017376 seconds time elapsed
+
+       2.555079000 seconds user
+       0.271902000 seconds sys
+
+

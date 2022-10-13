@@ -1,0 +1,54 @@
+
+ Performance counter stats for '../run_base_train_riscv.0002/perlbench_base.riscv -I. -I./lib perfect.pl':
+
+            110.95 msec task-clock                #    0.988 CPUs utilized          
+                 5      context-switches          #   45.065 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+               725      page-faults               #    6.534 K/sec                  
+         132676748      cycles                    #    1.196 GHz                    
+          61445429      instructions              #    0.46  insn per cycle         
+           8593414      branches                  #   77.453 M/sec                  
+            872420      branch-misses             #   10.15% of all branches        
+
+       0.112325780 seconds time elapsed
+
+       0.072015000 seconds user
+       0.040008000 seconds sys
+
+
+
+ Performance counter stats for '../run_base_train_riscv.0002/perlbench_base.riscv -I. -I./lib perfect.pl':
+
+            105.78 msec task-clock                #    0.991 CPUs utilized          
+                 1      context-switches          #    9.453 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+               725      page-faults               #    6.854 K/sec                  
+         126498998      cycles                    #    1.196 GHz                    
+          60887364      instructions              #    0.48  insn per cycle         
+           8550379      branches                  #   80.830 M/sec                  
+            842636      branch-misses             #    9.85% of all branches        
+
+       0.106718973 seconds time elapsed
+
+       0.083091000 seconds user
+       0.023740000 seconds sys
+
+
+
+ Performance counter stats for '../run_base_train_riscv.0002/perlbench_base.riscv -I. -I./lib perfect.pl':
+
+            105.89 msec task-clock                #    0.991 CPUs utilized          
+                 1      context-switches          #    9.443 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+               725      page-faults               #    6.846 K/sec                  
+         126632744      cycles                    #    1.196 GHz                    
+          60870696      instructions              #    0.48  insn per cycle         
+           8548889      branches                  #   80.730 M/sec                  
+            839945      branch-misses             #    9.83% of all branches        
+
+       0.106865992 seconds time elapsed
+
+       0.091114000 seconds user
+       0.015845000 seconds sys
+
+

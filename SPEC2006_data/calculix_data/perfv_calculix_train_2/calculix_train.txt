@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_train_riscv.0002/calculix_base.riscv -i stairs':
+
+           7712.09 msec task-clock                #    0.999 CPUs utilized          
+                47      context-switches          #    6.094 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+             15042      page-faults               #    1.950 K/sec                  
+        9223133822      cycles                    #    1.196 GHz                    
+        6121376936      instructions              #    0.66  insn per cycle         
+         882596012      branches                  #  114.443 M/sec                  
+          12873328      branch-misses             #    1.46% of all branches        
+
+       7.718762770 seconds time elapsed
+
+       7.417412000 seconds user
+       0.295896000 seconds sys
+
+

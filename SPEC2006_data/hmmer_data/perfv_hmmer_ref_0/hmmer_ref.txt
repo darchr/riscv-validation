@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_ref_riscv.0000/hmmer_base.riscv --fixed 0 --mean 500 --num 500000 --sd 350 --seed 0 retro.hmm':
+
+        3330229.24 msec task-clock                #    0.780 CPUs utilized          
+             85981      context-switches          #   25.818 /sec                   
+              5757      cpu-migrations            #    1.729 /sec                   
+               802      page-faults               #    0.241 /sec                   
+     3982732578399      cycles                    #    1.196 GHz                    
+     2585272454204      instructions              #    0.65  insn per cycle         
+      345709000084      branches                  #  103.809 M/sec                  
+         425344390      branch-misses             #    0.12% of all branches        
+
+    4271.193334528 seconds time elapsed
+
+    3333.173765000 seconds user
+       0.527795000 seconds sys
+
+

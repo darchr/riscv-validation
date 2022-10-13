@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_train_riscv.0002/h264ref_base.riscv -d foreman_train_encoder_baseline.cfg':
+
+         656048.09 msec task-clock                #    0.996 CPUs utilized          
+              3794      context-switches          #    5.783 /sec                   
+                35      cpu-migrations            #    0.053 /sec                   
+              9007      page-faults               #   13.729 /sec                   
+      784581524192      cycles                    #    1.196 GHz                    
+      612765788587      instructions              #    0.78  insn per cycle         
+       34026685486      branches                  #   51.866 M/sec                  
+       20806587262      branch-misses             #   61.15% of all branches        
+
+     658.907799991 seconds time elapsed
+
+     655.701977000 seconds user
+       0.295836000 seconds sys
+
+

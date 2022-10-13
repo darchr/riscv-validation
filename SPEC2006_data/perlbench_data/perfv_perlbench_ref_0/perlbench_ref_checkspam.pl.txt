@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_ref_riscv.0000/perlbench_base.riscv -I. -I./lib checkspam.pl':
+
+           2578.17 msec task-clock                #    0.999 CPUs utilized          
+                15      context-switches          #    5.818 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+              8469      page-faults               #    3.285 K/sec                  
+        3083314714      cycles                    #    1.196 GHz                    
+        1752597238      instructions              #    0.57  insn per cycle         
+         257286938      branches                  #   99.794 M/sec                  
+          16038794      branch-misses             #    6.23% of all branches        
+
+       2.579948826 seconds time elapsed
+
+       2.439138000 seconds user
+       0.139950000 seconds sys
+
+

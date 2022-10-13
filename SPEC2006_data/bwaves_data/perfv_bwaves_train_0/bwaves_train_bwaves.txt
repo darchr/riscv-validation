@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_train_riscv.0000/bwaves_base.riscv':
+
+         741873.46 msec task-clock                #    0.628 CPUs utilized          
+             38003      context-switches          #   51.226 /sec                   
+              2111      cpu-migrations            #    2.845 /sec                   
+            220914      page-faults               #  297.779 /sec                   
+      887240170462      cycles                    #    1.196 GHz                    
+      120272829111      instructions              #    0.14  insn per cycle         
+        5999070532      branches                  #    8.086 M/sec                  
+         156921208      branch-misses             #    2.62% of all branches        
+
+    1182.254687867 seconds time elapsed
+
+     739.088784000 seconds user
+       4.219528000 seconds sys
+
+

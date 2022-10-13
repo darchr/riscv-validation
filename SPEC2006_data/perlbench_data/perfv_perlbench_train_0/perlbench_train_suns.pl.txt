@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_train_riscv.0000/perlbench_base.riscv -I. -I./lib suns.pl':
+
+           3116.74 msec task-clock                #    1.000 CPUs utilized          
+                 4      context-switches          #    1.283 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+              5767      page-faults               #    1.850 K/sec                  
+        3727436655      cycles                    #    1.196 GHz                    
+        2237621574      instructions              #    0.60  insn per cycle         
+         261457889      branches                  #   83.888 M/sec                  
+          27288708      branch-misses             #   10.44% of all branches        
+
+       3.117843785 seconds time elapsed
+
+       2.981691000 seconds user
+       0.136077000 seconds sys
+
+

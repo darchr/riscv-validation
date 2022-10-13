@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_train_riscv.0001/tonto_base.riscv':
+
+        2476485.62 msec task-clock                #    0.679 CPUs utilized          
+            106419      context-switches          #   42.972 /sec                   
+              8495      cpu-migrations            #    3.430 /sec                   
+             24888      page-faults               #   10.050 /sec                   
+     2961792271630      cycles                    #    1.196 GHz                    
+     1011437910742      instructions              #    0.34  insn per cycle         
+       71895870554      branches                  #   29.031 M/sec                  
+        4625074468      branch-misses             #    6.43% of all branches        
+
+    3646.918720773 seconds time elapsed
+
+    2479.936253000 seconds user
+       1.123425000 seconds sys
+
+

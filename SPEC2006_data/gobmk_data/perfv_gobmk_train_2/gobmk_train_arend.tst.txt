@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_train_riscv.0002/gobmk_base.riscv --quiet --mode gtp':
+
+         246440.77 msec task-clock                #    0.940 CPUs utilized          
+              3540      context-switches          #   14.365 /sec                   
+               221      cpu-migrations            #    0.897 /sec                   
+              6532      page-faults               #   26.505 /sec                   
+      294723292623      cycles                    #    1.196 GHz                    
+      217503848240      instructions              #    0.74  insn per cycle         
+       28770389942      branches                  #  116.744 M/sec                  
+         273335632      branch-misses             #    0.95% of all branches        
+
+     262.268350601 seconds time elapsed
+
+     246.087841000 seconds user
+       0.359666000 seconds sys
+
+

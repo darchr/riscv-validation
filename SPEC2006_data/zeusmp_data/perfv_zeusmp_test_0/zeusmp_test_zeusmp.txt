@@ -1,0 +1,18 @@
+
+ Performance counter stats for '../run_base_test_riscv.0000/zeusmp_base.riscv':
+
+         159156.88 msec task-clock                #    0.648 CPUs utilized          
+              7760      context-switches          #   48.757 /sec                   
+               412      cpu-migrations            #    2.589 /sec                   
+             40280      page-faults               #  253.084 /sec                   
+      190341711695      cycles                    #    1.196 GHz                    
+       41348509944      instructions              #    0.22  insn per cycle         
+        1266591932      branches                  #    7.958 M/sec                  
+          30468597      branch-misses             #    2.41% of all branches        
+
+     245.435745201 seconds time elapsed
+
+     158.601155000 seconds user
+       0.855380000 seconds sys
+
+

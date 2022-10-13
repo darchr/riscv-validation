@@ -1,0 +1,7 @@
+# Use another -n on the command line to see chdir commands
+# Starting run for copy #0
+../run_base_train_riscv.0002/bzip2_base.riscv input.program 10 > input.program.out 2>> input.program.err
+# Starting run for copy #0
+../run_base_train_riscv.0002/bzip2_base.riscv byoudoin.jpg 5 > byoudoin.jpg.out 2>> byoudoin.jpg.err
+# Starting run for copy #0
+../run_base_train_riscv.0002/bzip2_base.riscv input.combined 80 > input.combined.out 2>> input.combined.err
