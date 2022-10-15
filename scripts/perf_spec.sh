@@ -14,8 +14,7 @@ BENCHES="bzip2 gcc bwaves mcf milc zeusmp gromacs cactusADM leslie3d namd gobmk 
 
 # Run all SPEC 2006 benchmarks in BENCHES
 for bench in $BENCHES; do
-#    $1 stat -e instructions,cycles,branches,branch-misses -o $OUTDIR/$bench.out runspec --size $2 --iterations 1 --noreportable --config riscv.cfg --nobuild $bench
-    echo foo
+    $1 stat -e instructions,cycles,branches,branch-misses -o $OUTDIR/$bench.out runspec --size $2 --iterations 1 --noreportable --config riscv.cfg --nobuild $bench
 done
 
 # collect statistics
